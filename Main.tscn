@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Bondi.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/733b2174-c11d-4ad7-80a3-796be1eee7bf.jpg" type="Texture" id=2]
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 514, 301.375 )
+scale = Vector2( 1.68627, 1.51933 )
+texture = ExtResource( 2 )
+
+[node name="Bondi" parent="." instance=ExtResource( 1 )]
