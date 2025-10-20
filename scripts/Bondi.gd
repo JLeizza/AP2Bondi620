@@ -3,6 +3,7 @@ extends KinematicBody2D
 var move = 50
 var initial_position = 410 
 var speed = 10
+var traveled_distance : int 
 
 func _ready():
 	# Asegúrate de que la posición inicial esté establecida
@@ -12,7 +13,6 @@ func _physics_process(delta):
 
 	if not is_inside_tree():
 		return
-
 
 	if Input.is_action_just_pressed("ui_up") && position.y != initial_position :
 		position.y -= move
