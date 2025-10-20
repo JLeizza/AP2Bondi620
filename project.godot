@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="AP2_EndlessBondi"
-run/main_scene="res://Main.tscn"
+config/name="Ap 2 Bondi"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [gui]

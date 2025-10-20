@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/0baa3ea4-2104-4373-8bd0-2798073d602d.jpg" type="Texture" id=1]
-[ext_resource path="res://Bondi.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Bondi.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 166.5, 77.5 )
