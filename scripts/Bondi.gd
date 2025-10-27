@@ -1,15 +1,21 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
+# Variables de Bondi
+var main 
 var move = 50
 var initial_position = 410 
-var speed = 10
+var speed 
 var traveled_distance : int 
 
 func _ready():
-	# Asegúrate de que la posición inicial esté establecida
 	position.y = initial_position
 
-func _physics_process(delta):
+
+
+func _process(_delta):
+	pass
+
+func _physics_process(_delta):
 
 	if not is_inside_tree():
 		return
