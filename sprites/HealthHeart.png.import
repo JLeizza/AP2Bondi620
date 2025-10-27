@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8y05rbogsd5s"
-path="res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"
+uid="uid://dst4m8yj4rrwf"
+path="res://.godot/imported/HealthHeart.png-06f6cfef9873b671ed3b6ea3c59bf1b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parada.png"
-dest_files=["res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"]
+source_file="res://sprites/HealthHeart.png"
+dest_files=["res://.godot/imported/HealthHeart.png-06f6cfef9873b671ed3b6ea3c59bf1b0.ctex"]
 
 [params]
 

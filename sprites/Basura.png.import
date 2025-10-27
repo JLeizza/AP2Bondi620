@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8y05rbogsd5s"
-path="res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"
+uid="uid://bq4oieu7pp6o8"
+path="res://.godot/imported/Basura.png-3ce6c0a563f1206c3e8c2d7f9cf0a7a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parada.png"
-dest_files=["res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"]
+source_file="res://sprites/Basura.png"
+dest_files=["res://.godot/imported/Basura.png-3ce6c0a563f1206c3e8c2d7f9cf0a7a9.ctex"]
 
 [params]
 
