@@ -20,6 +20,7 @@ func _physics_process(_delta):
 	if not is_inside_tree():
 		return
 
+# Input de movimiento.
 	if Input.is_action_just_pressed("ui_up") && position.y != initial_position :
 		position.y -= move
 

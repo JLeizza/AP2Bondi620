@@ -27,8 +27,6 @@ var speed : float
 var ult_obstaculo 
 
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	traveled_distance = 0
 	carriles = [
@@ -38,10 +36,6 @@ func _ready():
 	posSantuarios = $PosSantuario
 	posParada = $PosParada
 	
-	
-
-
-
 func _process(_delta):
 	
 	speed = int(START_SPEED + (traveled_distance /  SPEED_MODIFIER))
@@ -64,15 +58,21 @@ func show_distance():
 
 func gen_obstaculos():
 	if obstaculos.is_empty():
+		
+		#Generar objeto random
 		var obs_tipo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
 		var obs
+		#instanciarlo
 		obs = obs_tipo.instantiate()
 		ult_obstaculo = obs
 		
+		#randomizar en que carril aparece
 		var spawn_point = carriles[randi() % carriles.size()] 
 		print (obs.position.y) # para debug
 		obs.position = spawn_point.position
 		add_child(obs)
+		
+		#lo agrega al array de objetos spawneados. 
 		obstaculos.append(obs)
 
 
