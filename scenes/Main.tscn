@@ -1,24 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dubfgnjb30dlf"]
 
-[ext_resource path="res://scenes/BG.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Bondi.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/Main.gd" type="Script" id=3]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/FireTires.tscn" type="PackedScene" id=5]
+[ext_resource type="PackedScene" path="res://scenes/BG.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/Bondi.tscn" id="2"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4"]
 
 [node name="Main" type="Node"]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+[node name="ParallaxBackground" parent="." instance=ExtResource("1")]
 
-[node name="Bondi" parent="." instance=ExtResource( 2 )]
-position = Vector2( 211, 407 )
+[node name="Bondi" parent="." instance=ExtResource("2")]
+position = Vector2(211, 407)
+
+[node name="HUD" parent="." instance=ExtResource("4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 512, 300 )
-current = true
+position = Vector2(512, 300)
 
-[node name="HUD" parent="." instance=ExtResource( 4 )]
+[node name="Carril1" type="Marker2D" parent="."]
+position = Vector2(1078, 462)
 
-[node name="FireTires" parent="." instance=ExtResource( 5 )]
-position = Vector2( 925, 444 )
+[node name="Carril2" type="Marker2D" parent="."]
+position = Vector2(1078, 525)
+
+[node name="PosParada" type="Marker2D" parent="."]
+position = Vector2(1343, 397)
+
+[node name="PosSantuario" type="Marker2D" parent="."]
+position = Vector2(1343, 530)

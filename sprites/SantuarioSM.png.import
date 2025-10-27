@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8y05rbogsd5s"
-path="res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"
+uid="uid://vlfhij7w6xqa"
+path="res://.godot/imported/SantuarioSM.png-7b1e5f46d8a1960d0e4e94a56a338302.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parada.png"
-dest_files=["res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"]
+source_file="res://sprites/SantuarioSM.png"
+dest_files=["res://.godot/imported/SantuarioSM.png-7b1e5f46d8a1960d0e4e94a56a338302.ctex"]
 
 [params]
 

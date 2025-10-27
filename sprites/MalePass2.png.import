@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8y05rbogsd5s"
-path="res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"
+uid="uid://vjxbn6wowsop"
+path="res://.godot/imported/MalePass2.png-032350e3634d5a68733b326133f8f9e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/parada.png"
-dest_files=["res://.godot/imported/parada.png-f284ec629569b9fa92904b7f560827be.ctex"]
+source_file="res://sprites/MalePass2.png"
+dest_files=["res://.godot/imported/MalePass2.png-032350e3634d5a68733b326133f8f9e6.ctex"]
 
 [params]
 

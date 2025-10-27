@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://sprites/Bondi.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Bondi.png" type="Texture2D" id=1]
 [ext_resource path="res://scripts/Bondi.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 166.5, 35.75 )
+size = Vector2( 166.5, 35.75 )
 
-[node name="Bondi" type="KinematicBody2D"]
+[node name="Bondi" type="CharacterBody2D"]
 position = Vector2( 210, 241 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( 5, 23 )
 scale = Vector2( 0.595885, 0.595885 )
 texture = ExtResource( 1 )
