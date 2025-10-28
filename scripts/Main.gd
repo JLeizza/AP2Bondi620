@@ -26,8 +26,16 @@ var traveled_distance : int
 var speed : float
 var ult_obstaculo 
 
+#variable para establcer el estado del juego
+var game_over = false
+
 
 func _ready():
+	#conectar las señales del HUD con las funciones del Main
+	var temporizador = $HUD
+	temporizador.connect("perder_signal", Callable(self, "perder_nivel"))
+	temporizador.connect("reiniciar_signal", Callable(self, "reiniciar_nivel"))
+	
 	traveled_distance = 0
 	carriles = [
 		$Carril1,
@@ -37,6 +45,9 @@ func _ready():
 	posParada = $PosParada
 	
 func _process(_delta):
+	#para hacer que el juego se detenga al perder
+	if game_over == true:
+		return
 	
 	speed = int(START_SPEED + (traveled_distance /  SPEED_MODIFIER))
 	#print(speed)
@@ -75,4 +86,12 @@ func gen_obstaculos():
 		#lo agrega al array de objetos spawneados. 
 		obstaculos.append(obs)
 
+
+#funcion que cambia el game_over a true para que se detenga el juego
+func perder_nivel():
+	game_over = true
+
+#funcion que reinicia la escena(nivel) al apretar el boton reiniciar (esta en el HUD)	
+func reiniciar_nivel():
+	get_tree().reload_current_scene()
 
