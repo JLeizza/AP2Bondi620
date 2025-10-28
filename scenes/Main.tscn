@@ -29,3 +29,15 @@ position = Vector2(1343, 397)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
 position = Vector2(1343, 530)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="TimerObs" type="Timer" parent="Timers"]
+
+[node name="TimerParadas" type="Timer" parent="Timers"]
+
+[node name="TimerSantuarios" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_obs_timeout"]
+[connection signal="timeout" from="Timers/TimerParadas" to="." method="_on_timer_paradas_timeout"]
+[connection signal="timeout" from="Timers/TimerSantuarios" to="." method="_on_timer_santuarios_timeout"]
