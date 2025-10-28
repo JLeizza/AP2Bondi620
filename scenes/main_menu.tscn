@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbyfb582w7uyg"]
+
+[ext_resource type="Texture2D" uid="uid://chr3c8mtyb33k" path="res://sprites/Fondo Main Menu/Fondo Menu.png" id="1_hmlna"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_p0t7o"]
+[ext_resource type="FontFile" uid="uid://dl81wxx845lf4" path="res://fonts/upheavtt.ttf" id="2_dgkec"]
+[ext_resource type="Texture2D" uid="uid://by700bjlajpig" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="3_hxrep"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gq3l"]
+texture = ExtResource("1_hmlna")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sssqr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01gqe"]
+texture = ExtResource("3_hxrep")
+
+[node name="Main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0t7o")
+
+[node name="Fondo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6gq3l")
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.188965
+anchor_top = 0.221667
+anchor_right = 0.195801
+anchor_bottom = 0.248333
+offset_left = -161.5
+offset_top = -37.0
+offset_right = 161.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 73
+text = "EL BONDI"
+horizontal_alignment = 1
+
+[node name="Titulo 620" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.188965
+anchor_top = 0.221667
+anchor_right = 0.195801
+anchor_bottom = 0.248333
+offset_left = -161.5
+offset_top = -45.0
+offset_right = 161.5
+offset_bottom = 89.32
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(0.298039, 0.294118, 0.0156863, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 73
+text = "
+620"
+horizontal_alignment = 1
+
+[node name="Botones" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jugar" type="Button" parent="Botones"]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 312.0
+offset_right = 280.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
+text = "JUGAR"
+
+[node name="Opciones" type="Button" parent="Botones"]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 376.0
+offset_right = 314.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
+text = "OPCIONES"
+
+[node name="Salir" type="Button" parent="Botones"]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 448.0
+offset_right = 288.0
+offset_bottom = 496.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
+text = "SALIR"
+
+[connection signal="pressed" from="Botones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="Botones/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="Botones/Salir" to="." method="_on_salir_pressed"]
