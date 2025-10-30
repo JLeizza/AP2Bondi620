@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dubfgnjb30dlf"]
 
-[ext_resource type="PackedScene" path="res://scenes/BG.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/Bondi.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bfhutyn7hb3ah" path="res://scenes/BG.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://fopcwq0vins" path="res://scenes/Bondi.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://da860gryq61gg" path="res://scenes/HUD.tscn" id="4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
@@ -29,3 +29,11 @@ position = Vector2(1343, 397)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
 position = Vector2(1343, 530)
+
+[node name="Pasajeros" type="Node2D" parent="."]
+
+[node name="TimerPasajeros" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TimerPasajeros" to="." method="_on_timer_pasajeros_timeout"]
