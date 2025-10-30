@@ -5,7 +5,8 @@
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1")]
@@ -19,16 +20,16 @@ position = Vector2(211, 407)
 position = Vector2(512, 300)
 
 [node name="Carril1" type="Marker2D" parent="."]
-position = Vector2(1078, 462)
+position = Vector2(1078, 465)
 
 [node name="Carril2" type="Marker2D" parent="."]
-position = Vector2(1078, 525)
+position = Vector2(1078, 530)
 
 [node name="PosParada" type="Marker2D" parent="."]
 position = Vector2(1343, 397)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
-position = Vector2(1343, 530)
+position = Vector2(1343, 541)
 
 [node name="Timers" type="Node" parent="."]
 

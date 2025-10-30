@@ -25,12 +25,6 @@ var timer_obs
 var timer_paradas
 var timer_santuarios
 
-# Constantes del juego
-const START_SPEED = 5
-const MAX_SPEED = 25
-const DIST_MODIFIER = 10
-const SPEED_MODIFIER = 500
-const SPAWN_OFFSET_X = 800  # Píxeles adelante del bondi
 
 # Variables del juego
 var traveled_distance: int = 0
@@ -43,18 +37,18 @@ func _ready():
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
 	
-	# Obtener referencias a nodos
+	
 	carriles = [$Carril1, $Carril2]
-	print("Carriles encontrados: ", carriles.size())
-	for i in carriles.size():
-		print("  Carril ", i, " posición Y: ", carriles[i].position.y)
+	#for i in carriles.size():
+	#	print("  Carril ", i, " posición Y: ", carriles[i].position.y)
 	
 	posSantuarios = $PosSantuario
 	print("PosSantuario posición Y: ", posSantuarios.position.y)
 	
 	posParada = $PosParada
 	bondi = $Bondi
-	print("Bondi posición inicial: ", bondi.position)
+#	print("Bondi posición inicial: ", bondi.position)
+#	bondi.z_index = int(bondi.position.y)
 	
 	camera = $Camera2D
 	hud = $HUD
@@ -68,40 +62,39 @@ func _ready():
 	print("=== INICIALIZACIÓN COMPLETA ===")
 
 func _process(_delta):
-	speed = int(START_SPEED + (traveled_distance / SPEED_MODIFIER))
+	speed = int(Cte.START_SPEED + (traveled_distance / Cte.SPEED_MODIFIER))
 	
 	bondi.position.x += speed
 	camera.position.x += speed
-	traveled_distance += int(speed / DIST_MODIFIER)
-	
+	traveled_distance += int(speed / Cte.DIST_MODIFIER)
+	bondi.z_index = int(bondi.position.y)
 	show_distance()
 
 func show_distance():
 	hud.get_node("DistanceLabel").text = "Distancia recorrida: " + str(traveled_distance)
 
 func _on_timer_obs_timeout():
-	print(">>> Timer obstáculos activado!")
+	#print(">>> Timer obstáculos activado!")
 	gen_obstaculos()
 
 func _on_timer_paradas_timeout():
 	pass # Replace with function body.
 
 func _on_timer_santuarios_timeout():
-	print(">>> Timer santuarios activado!")
+	#print(">>> Timer santuarios activado!")
 	gen_santuario()
 
 # Timers
 func set_timers():
-	print("Configurando timers...")
 	
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
 	
-	timer_obs.wait_time = 5
+	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
 	timer_obs.start()
 	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
 	
-	timer_santuarios.wait_time = 15
+	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
 	timer_santuarios.start()
 	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
 
@@ -111,23 +104,20 @@ func gen_santuario():
 	
 	# Generar objeto random
 	var santuario_scene = buffs.pick_random()
-	print("  Escena elegida: ", santuario_scene)
+#	print("  Escena elegida: ", santuario_scene)
 	
 	# Instanciarlo
 	var sant = santuario_scene.instantiate()
-	print("  Santuario instanciado: ", sant)
+#	print("  Santuario instanciado: ", sant)
 	
 	# X = bondi + 800, Y = del marker
-	var spawn_x = bondi.position.x + SPAWN_OFFSET_X
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posSantuarios.position.y
 	sant.position = Vector2(spawn_x, spawn_y)
 	
 	print("  Posición asignada: ", sant.position)
-	print("  (Bondi en X: ", bondi.position.x, ")")
-	
+#	print("  (Bondi en X: ", bondi.position.x, ")")
 	add_child(sant)
-	print("  Hijo agregado. Total hijos: ", get_child_count())
-	
 	lastSantuario = sant
 
 func gen_obstaculos():
@@ -150,12 +140,18 @@ func gen_obstaculos():
 	var carril_elegido = carriles.pick_random()
 	
 	# X = bondi + 800, Y = del carril elegido
-	var spawn_x = bondi.position.x + SPAWN_OFFSET_X
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = carril_elegido.position.y
 	obs.position = Vector2(spawn_x, spawn_y)
-	
-	print("  Carril Y: ", spawn_y, " - Posición final: ", obs.position)
-	print("  (Bondi en X: ", bondi.position.x, ")")
-	
+	#obs.z_index = int(obs.position.y)
+	#Se agrega como hijo de YSort para que quede ordenado por el eje y
 	add_child(obs)
-	print("  Hijo agregado. Total hijos: ", get_child_count())
+	print("  === DEBUG OBSTÁCULO ===")
+	print("  Carril Y elegido: ", spawn_y)
+	print("  Obstáculo Y final: ", obs.position.y)
+	print("  Obstáculo z_index: ", obs.z_index)
+	print("  Bondi Y: ", bondi.position.y)
+	print("  Bondi z_index: ", bondi.z_index)
+	print("  ¿Obstáculo debería estar DELANTE del bondi?: ", obs.z_index > bondi.z_index)
+	
+
