@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dubfgnjb30dlf"]
 
 [ext_resource type="PackedScene" path="res://scenes/BG.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/Bondi.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ctmodcgk8yir8" path="res://scenes/Bondi.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://cuc6pjfilp5n5" path="res://scenes/HUD.tscn" id="4"]
 
