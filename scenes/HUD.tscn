@@ -1,23 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuc6pjfilp5n5"]
+[gd_scene load_steps=6 format=3 uid="uid://da860gryq61gg"]
 
-[ext_resource type="FontFile" uid="uid://by06cxef6oxg4" path="res://fonts/Halloween.ttf" id="1"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
 [ext_resource type="FontFile" uid="uid://dl81wxx845lf4" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
-
-[sub_resource type="FontFile" id="1"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-fallbacks = Array[Font]([ExtResource("1"), ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
@@ -28,11 +12,14 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_01wxg")
 
-[node name="DistanceLabel" type="Label" parent="."]
-offset_right = 101.0
-offset_bottom = 30.0
-theme_override_fonts/font = SubResource("1")
-text = "DISTANCE:"
+[node name="Pasajeros" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 343.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 55
+text = "PASAJEROS:"
 uppercase = true
 
 [node name="TiempoPantalla" type="Label" parent="."]
