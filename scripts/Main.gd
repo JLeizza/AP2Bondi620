@@ -68,10 +68,7 @@ func _process(_delta):
 	camera.position.x += speed
 	traveled_distance += int(speed / Cte.DIST_MODIFIER)
 	bondi.z_index = int(bondi.position.y)
-	show_distance()
 
-func show_distance():
-	hud.get_node("DistanceLabel").text = "Distancia recorrida: " + str(traveled_distance)
 
 func _on_timer_obs_timeout():
 	#print(">>> Timer obstáculos activado!")
