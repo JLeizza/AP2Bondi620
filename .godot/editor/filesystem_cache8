@@ -1,0 +1,51 @@
+2a60927148abd1d33b818b535e306557
+::res://::1761864427
+default_env.tres::Environment::8851238937992529893::1761864284::0::1::::<><>::
+icon.png::CompressedTexture2D::7640432712033989873::1760998221::1761864427::1::::<><>::
+::res://fonts/::1761864427
+ari-w9500-bold.ttf::FontFile::8601431452535976854::1761864427::1761865126::1::::<><>::
+Halloween.ttf::FontFile::4124449387706394437::1654697710::1761864427::1::::<><>::
+PressStart2P.ttf::FontFile::959045181320410398::1761864427::1761865126::1::::<><>::
+upheavtt.ttf::FontFile::8001082971366337427::1761864427::1761865126::1::::<><>::
+::res://scenes/::1761864427
+Basura.tscn::PackedScene::4324668029014502853::1761864284::0::1::::<><>::uid://bq4oieu7pp6o8
+BG.tscn::PackedScene::-1::1761527553::0::1::::<><>::res://sprites/Fondo/3.png<>res://sprites/Fondo/1.png<>res://sprites/Fondo/2.png
+Bondi.tscn::PackedScene::-1::1761527553::0::1::::<><>::res://sprites/Bondi.png<>res://scripts/Bondi.gd
+Cascote.tscn::PackedScene::164745056897280800::1761864284::0::1::::<><>::uid://bx1olki7j46g7
+Gomas.tscn::PackedScene::7538837286843011980::1761864284::0::1::::<><>::uid://df7s565jbj8ri
+hombre.tscn::PackedScene::-1::1761864427::0::1::::<><>::
+HUD.tscn::PackedScene::-1::1761527553::0::1::::<><>::res://fonts/Halloween.ttf
+Main.tscn::PackedScene::8565418298111903215::1761699593::0::1::::<><>::res://scenes/BG.tscn<>res://scenes/Bondi.tscn<>res://scripts/Main.gd<>res://scenes/HUD.tscn
+main_menu.tscn::PackedScene::-1::1761864427::0::1::::<><>::
+SantuarioGG.tscn::PackedScene::-1::1761864284::0::1::::<><>::res://sprites/SantuarioGG.png
+SantuarioSM.tscn::PackedScene::-1::1761864284::0::1::::<><>::res://sprites/SantuarioSM.png
+::res://scripts/::1761864427
+Bondi.gd::GDScript::-1::1761864427::0::1::::<>CharacterBody2D<>::
+Constantes.gd::GDScript::-1::1761864422::0::1::::<>Node<>::
+hombre.gd::GDScript::-1::1761864427::0::1::::<>CharacterBody2D<>::
+HUD.gd::GDScript::-1::1761864427::0::1::::<>CanvasLayer<>::
+Main.gd::GDScript::-1::1761864990::0::1::::<>Node<>::
+main_menu.gd::GDScript::-1::1761864427::0::1::::<>Control<>::
+PasajeroHombre.gd::GDScript::-1::1761864427::0::1::::<>Node2D<>::
+::res://sprites/::1761864427
+Basura.png::CompressedTexture2D::3570173703483415777::1761864284::1761864284::1::::<><>::
+Bondi.png::CompressedTexture2D::3995559717402549828::1761527518::1761864284::1::::<><>::
+Cascotes.png::CompressedTexture2D::4055308129664157664::1761864284::1761864284::1::::<><>::
+FemPass1.png::CompressedTexture2D::8446448324616565687::1761864284::1761864284::1::::<><>::
+FemPass2.png::CompressedTexture2D::8208651598842430513::1761864284::1761864284::1::::<><>::
+fireTires.PNG::CompressedTexture2D::7577414512064955718::1761527518::1761864284::1::::<><>::
+Fisura 1.png::CompressedTexture2D::7732677882647051442::1761864284::1761864284::1::::<><>::
+HealthHeart.png::CompressedTexture2D::8463668407002329901::1761864284::1761864284::1::::<><>::
+MalePass1.png::CompressedTexture2D::512766315815160545::1761864284::1761864284::1::::<><>::
+MalePass2.png::CompressedTexture2D::1493944124524414403::1761864284::1761864284::1::::<><>::
+parada.png::CompressedTexture2D::7140190667261596682::1760992944::1761864427::1::::<><>::
+SantuarioGG.png::CompressedTexture2D::219447590001012153::1761864284::1761864284::1::::<><>::
+SantuarioSM.png::CompressedTexture2D::1496990392789123604::1761864284::1761864284::1::::<><>::
+::res://sprites/Fondo/::1761864427
+1.png::CompressedTexture2D::6483474566755626276::1760992944::1761864427::1::::<><>::
+2.png::CompressedTexture2D::9022896175187794032::1760992944::1761864427::1::::<><>::
+3.png::CompressedTexture2D::5679771531113536289::1760992944::1761864427::1::::<><>::
+::res://sprites/Fondo Main Menu/::1761864427
+Fondo Menu.png::CompressedTexture2D::5300963094760341274::1761864427::1761865126::1::::<><>::
+Sin título-2.png::CompressedTexture2D::603628406111406427::1761864427::1761865126::1::::<><>::
+Sin título-3.png::CompressedTexture2D::4138575655729326010::1761864427::1761865126::1::::<><>::
