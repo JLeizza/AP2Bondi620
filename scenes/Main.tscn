@@ -5,8 +5,7 @@
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://da860gryq61gg" path="res://scenes/HUD.tscn" id="4"]
 
-[node name="Main" type="Node2D"]
-y_sort_enabled = true
+[node name="Main" type="Node"]
 script = ExtResource("3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1")]
@@ -20,30 +19,15 @@ position = Vector2(211, 407)
 position = Vector2(512, 300)
 
 [node name="Carril1" type="Marker2D" parent="."]
-position = Vector2(1078, 465)
+position = Vector2(1078, 462)
 
 [node name="Carril2" type="Marker2D" parent="."]
-position = Vector2(1078, 530)
+position = Vector2(1078, 525)
 
 [node name="PosParada" type="Marker2D" parent="."]
 position = Vector2(1343, 397)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
-<<<<<<< HEAD
-position = Vector2(1343, 541)
-
-[node name="Timers" type="Node" parent="."]
-
-[node name="TimerObs" type="Timer" parent="Timers"]
-
-[node name="TimerParadas" type="Timer" parent="Timers"]
-
-[node name="TimerSantuarios" type="Timer" parent="Timers"]
-
-[connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_obs_timeout"]
-[connection signal="timeout" from="Timers/TimerParadas" to="." method="_on_timer_paradas_timeout"]
-[connection signal="timeout" from="Timers/TimerSantuarios" to="." method="_on_timer_santuarios_timeout"]
-=======
 position = Vector2(1343, 530)
 
 [node name="Pasajeros" type="Node2D" parent="."]
@@ -53,4 +37,3 @@ wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="TimerPasajeros" to="." method="_on_timer_pasajeros_timeout"]
->>>>>>> main
