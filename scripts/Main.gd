@@ -1,119 +1,154 @@
 extends Node
 
-#Carga de obstaculos
-var basura_scene =preload("res://scenes/Basura.tscn")
-var cascote_scene =preload("res://scenes/Cascote.tscn")
-var gomas_scene =preload("res://scenes/Gomas.tscn")
-var santuario_gauchito =preload("res://scenes/SantuarioGG.tscn")
-var santuario_muerte =preload("res://scenes/SantuarioSM.tscn")
+# Carga de obstáculos
+var basura_scene = preload("res://scenes/Basura.tscn")
+var cascote_scene = preload("res://scenes/Cascote.tscn")
+var gomas_scene = preload("res://scenes/Gomas.tscn")
+var santuario_gauchito = preload("res://scenes/SantuarioGG.tscn")
+var santuario_muerte = preload("res://scenes/SantuarioSM.tscn")
 
-var tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
-var buffs = [santuario_gauchito, santuario_muerte]
-var obstaculos : Array
+var tipos_obstaculos = []
+var buffs = []
 
-var carriles : Array
-var posSantuarios
-var posParada
+var obstaculos: Array = []
+var lastSantuario = null
+var carriles: Array = []
+var posSantuarios = null
+var posParada = null
+var ult_obstaculo = null
 
-#Constantes del juego
-const START_SPEED = 5
-const MAX_SPEED = 25
-const DIST_MODIFIER = 10
-const SPEED_MODIFIER = 500
-
-#Variables del juego
-var traveled_distance : int 
-var speed : float
-var ult_obstaculo 
-
-#variable para establcer el estado del juego
-var game_over = false
-
-#variables y encenas de los pasajeros
-@onready var pasajeros_contenedor = $Pasajeros
-@onready var spawn_timer = $TimerPasajeros
-var pasajero_scene: PackedScene = preload("res://scenes/hombre.tscn")
+# Referencias a nodos (se inicializan en _ready)
+var bondi
+var camera
+var hud
+var timer_obs
+var timer_paradas
+var timer_santuarios
 
 
+# Variables del juego
+var traveled_distance: int = 0
+var speed: float = 0.0
 
 func _ready():
-	#conectar las señales del HUD con las funciones del Main
-	var temporizador = $HUD
-	temporizador.connect("perder_signal", Callable(self, "perder_nivel"))
-	temporizador.connect("reiniciar_signal", Callable(self, "reiniciar_nivel"))
+	print("=== INICIALIZANDO MAIN ===")
+	
+	# Inicializar arrays
+	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
+	buffs = [santuario_gauchito, santuario_muerte]
+	
+	
+	carriles = [$Carril1, $Carril2]
+	#for i in carriles.size():
+	#	print("  Carril ", i, " posición Y: ", carriles[i].position.y)
+	
+	posSantuarios = $PosSantuario
+	print("PosSantuario posición Y: ", posSantuarios.position.y)
+	
+	posParada = $PosParada
+	bondi = $Bondi
+#	print("Bondi posición inicial: ", bondi.position)
+#	bondi.z_index = int(bondi.position.y)
+	
+	camera = $Camera2D
+	hud = $HUD
+	timer_obs = $Timers/TimerObs
+	timer_paradas = $Timers/TimerParadas
+	timer_santuarios = $Timers/TimerSantuarios
 	
 	traveled_distance = 0
-	carriles = [
-		$Carril1,
-		$Carril2
-	]
-	posSantuarios = $PosSantuario
-	posParada = $PosParada
+	set_timers()
 	
+	print("=== INICIALIZACIÓN COMPLETA ===")
+
 func _process(_delta):
-	#para hacer que el juego se detenga al perder
-	if game_over == true:
-		return
+	speed = int(Cte.START_SPEED + (traveled_distance / Cte.SPEED_MODIFIER))
 	
-	speed = int(START_SPEED + (traveled_distance /  SPEED_MODIFIER))
-	#print(speed)
+	bondi.position.x += speed
+	camera.position.x += speed
+	traveled_distance += int(speed / Cte.DIST_MODIFIER)
+	bondi.z_index = int(bondi.position.y)
 
-	$Bondi.position.x += speed
-	$Camera2D.position.x += speed
 
-	traveled_distance += int(speed / DIST_MODIFIER)
-	
+func _on_timer_obs_timeout():
+	#print(">>> Timer obstáculos activado!")
 	gen_obstaculos()
+
+func _on_timer_paradas_timeout():
+	pass # Replace with function body.
+
+func _on_timer_santuarios_timeout():
+	#print(">>> Timer santuarios activado!")
+	gen_santuario()
+
+# Timers
+func set_timers():
 	
+	timer_obs.timeout.connect(_on_timer_obs_timeout)
+	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
+	
+	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
+	timer_obs.start()
+	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
+	
+	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
+	timer_santuarios.start()
+	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
 
-	#show_distance()
-
-#func show_distance():
-#	$HUD.get_node("DistanceLabel").text = "Distancia recorrida: " + str(traveled_distance)
-
-
-#Generacion randomizada
+# Generación randomizada
+func gen_santuario():
+	print("--- Generando santuario ---")
+	
+	# Generar objeto random
+	var santuario_scene = buffs.pick_random()
+#	print("  Escena elegida: ", santuario_scene)
+	
+	# Instanciarlo
+	var sant = santuario_scene.instantiate()
+#	print("  Santuario instanciado: ", sant)
+	
+	# X = bondi + 800, Y = del marker
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
+	var spawn_y = posSantuarios.position.y
+	sant.position = Vector2(spawn_x, spawn_y)
+	
+	print("  Posición asignada: ", sant.position)
+#	print("  (Bondi en X: ", bondi.position.x, ")")
+	add_child(sant)
+	lastSantuario = sant
 
 func gen_obstaculos():
-	if obstaculos.is_empty():
-		
-		#Generar objeto random
-		var obs_tipo = tipos_obstaculos[randi() % tipos_obstaculos.size()]
-		var obs
-		#instanciarlo
-		obs = obs_tipo.instantiate()
-		ult_obstaculo = obs
-		
-		#randomizar en que carril aparece
-		var spawn_point = carriles[randi() % carriles.size()] 
-		print (obs.position.y) # para debug
-		obs.position = spawn_point.position
-		add_child(obs)
-		
-		#lo agrega al array de objetos spawneados. 
-		obstaculos.append(obs)
-
-
-#funcion que cambia el game_over a true para que se detenga el juego
-func perder_nivel():
-	game_over = true
-
-#funcion que reinicia la escena(nivel) al apretar el boton reiniciar (esta en el HUD)	
-func reiniciar_nivel():
-	get_tree().reload_current_scene()
-
-#timer que genera a los pasajeros
-func _on_timer_pasajeros_timeout():
-	spawn_pasajeros()
-
-#funcion spawn de los pasajeros
-func spawn_pasajeros():
-	var pasajeros = pasajero_scene.instantiate()
-	pasajeros_contenedor.add_child(pasajeros)
+	print("--- Generando obstáculo ---")
 	
-	const Y_FIJO = 334 #punto fijo (donde estaria la parada)
-	var x_spawn = 1200 #punto para que aparezca fuera de pantalla asi no aparece de la nada
-	var posicion_spawn = Vector2($Bondi.global_position.x + x_spawn, Y_FIJO)
+	var obs_tipo = tipos_obstaculos.pick_random()
 	
-	pasajeros.global_position = posicion_spawn
-	print("pos pasajero: ", posicion_spawn) #para revisar las posiciones
+	# Evitar repetir el mismo obstáculo consecutivo
+	while obs_tipo == ult_obstaculo and tipos_obstaculos.size() > 1:
+		obs_tipo = tipos_obstaculos.pick_random()
+	
+	print("  Tipo elegido: ", obs_tipo)
+	
+	# Instanciarlo
+	var obs = obs_tipo.instantiate()
+	ult_obstaculo = obs_tipo
+	print("  Obstáculo instanciado: ", obs)
+	
+	# Randomizar carril
+	var carril_elegido = carriles.pick_random()
+	
+	# X = bondi + 800, Y = del carril elegido
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
+	var spawn_y = carril_elegido.position.y
+	obs.position = Vector2(spawn_x, spawn_y)
+	#obs.z_index = int(obs.position.y)
+	#Se agrega como hijo de YSort para que quede ordenado por el eje y
+	add_child(obs)
+	print("  === DEBUG OBSTÁCULO ===")
+	print("  Carril Y elegido: ", spawn_y)
+	print("  Obstáculo Y final: ", obs.position.y)
+	print("  Obstáculo z_index: ", obs.z_index)
+	print("  Bondi Y: ", bondi.position.y)
+	print("  Bondi z_index: ", bondi.z_index)
+	print("  ¿Obstáculo debería estar DELANTE del bondi?: ", obs.z_index > bondi.z_index)
+	
+
