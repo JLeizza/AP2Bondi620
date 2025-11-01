@@ -39,16 +39,13 @@ func _ready():
 	
 	
 	carriles = [$Carril1, $Carril2]
-	#for i in carriles.size():
-	#	print("  Carril ", i, " posición Y: ", carriles[i].position.y)
 	
 	posSantuarios = $PosSantuario
 	print("PosSantuario posición Y: ", posSantuarios.position.y)
 	
 	posParada = $PosParada
 	bondi = $Bondi
-#	print("Bondi posición inicial: ", bondi.position)
-#	bondi.z_index = int(bondi.position.y)
+	bondi.z_index = int(bondi.position.y)
 	
 	camera = $Camera2D
 	hud = $HUD
@@ -101,19 +98,17 @@ func gen_santuario():
 	
 	# Generar objeto random
 	var santuario_scene = buffs.pick_random()
-#	print("  Escena elegida: ", santuario_scene)
 	
 	# Instanciarlo
 	var sant = santuario_scene.instantiate()
-#	print("  Santuario instanciado: ", sant)
 	
 	# X = bondi + 800, Y = del marker
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posSantuarios.position.y
 	sant.position = Vector2(spawn_x, spawn_y)
+	sant.z_index = bondi.z_index + 1
 	
 	print("  Posición asignada: ", sant.position)
-#	print("  (Bondi en X: ", bondi.position.x, ")")
 	add_child(sant)
 	lastSantuario = sant
 
@@ -139,16 +134,18 @@ func gen_obstaculos():
 	# X = bondi + 800, Y = del carril elegido
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = carril_elegido.position.y
-	obs.position = Vector2(spawn_x, spawn_y)
-	#obs.z_index = int(obs.position.y)
-	#Se agrega como hijo de YSort para que quede ordenado por el eje y
+	obs.position = Vector2(spawn_x, spawn_y) 
+	
+	if carril_elegido == carriles[0]:  # Carril 1 (el de arriba)
+		obs.z_index = bondi.z_index - 1  # Siempre detrás del bondi
+	else:  # Carril 2 (el de abajo)
+		obs.z_index = bondi.z_index + 1 #Siempre adelante
+
 	add_child(obs)
 	print("  === DEBUG OBSTÁCULO ===")
 	print("  Carril Y elegido: ", spawn_y)
 	print("  Obstáculo Y final: ", obs.position.y)
 	print("  Obstáculo z_index: ", obs.z_index)
-	print("  Bondi Y: ", bondi.position.y)
 	print("  Bondi z_index: ", bondi.z_index)
-	print("  ¿Obstáculo debería estar DELANTE del bondi?: ", obs.z_index > bondi.z_index)
 	
 
