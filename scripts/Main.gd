@@ -24,6 +24,8 @@ var hud
 var timer_obs
 var timer_paradas
 var timer_santuarios
+var bondi_obs_collider 
+var bondi_stop_collider
 
 
 # Variables del juego
@@ -33,27 +35,8 @@ var speed: float = 0.0
 func _ready():
 	print("=== INICIALIZANDO MAIN ===")
 	
-	# Inicializar arrays
-	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
-	buffs = [santuario_gauchito, santuario_muerte]
-	
-	
-	carriles = [$Carril1, $Carril2]
-	
-	posSantuarios = $PosSantuario
-	print("PosSantuario posición Y: ", posSantuarios.position.y)
-	
-	posParada = $PosParada
-	bondi = $Bondi
-	bondi.z_index = int(bondi.position.y)
-	
-	camera = $Camera2D
-	hud = $HUD
-	timer_obs = $Timers/TimerObs
-	timer_paradas = $Timers/TimerParadas
-	timer_santuarios = $Timers/TimerSantuarios
-	
-	traveled_distance = 0
+	init_variables()
+
 	set_timers()
 	
 	print("=== INICIALIZACIÓN COMPLETA ===")
@@ -62,9 +45,10 @@ func _process(_delta):
 	speed = int(Cte.START_SPEED + (traveled_distance / Cte.SPEED_MODIFIER))
 	
 	bondi.position.x += speed
-	camera.position.x += speed
+	camera.position.x = bondi.position.x - Cte.CAMERA_OFFSET_X
 	traveled_distance += int(speed / Cte.DIST_MODIFIER)
 	bondi.z_index = int(bondi.position.y)
+	
 
 
 func _on_timer_obs_timeout():
@@ -140,7 +124,9 @@ func gen_obstaculos():
 		obs.z_index = bondi.z_index - 1  # Siempre detrás del bondi
 	else:  # Carril 2 (el de abajo)
 		obs.z_index = bondi.z_index + 1 #Siempre adelante
-
+	
+	obs.body_entered.connect(hit_obstacule)
+	
 	add_child(obs)
 	print("  === DEBUG OBSTÁCULO ===")
 	print("  Carril Y elegido: ", spawn_y)
@@ -148,4 +134,39 @@ func gen_obstaculos():
 	print("  Obstáculo z_index: ", obs.z_index)
 	print("  Bondi z_index: ", bondi.z_index)
 	
+func remove_obs(obs):
+	obs.queue_free()
+	obstaculos.erase(obs)
+	
+func hit_obstacule(body):
+	if body == bondi_obs_collider:
+		bondi.take_damage(Cte.DAÑO_OBSTACULO)
+	else: 
+		print("Colisione con un objeto que no es Bondi")
+		
+func init_variables():
+	
+		# Inicializar arrays
+	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
+	buffs = [santuario_gauchito, santuario_muerte]
+	
+	
+	carriles = [$Carril1, $Carril2]
+	
+	posSantuarios = $PosSantuario
+	print("PosSantuario posición Y: ", posSantuarios.position.y)
+	
+	posParada = $PosParada
+	bondi = $Bondi
+	bondi.z_index = int(bondi.position.y)
+	bondi_obs_collider = bondi.get_node("ObstaculesArea")
+	bondi_stop_collider = bondi.get_node("StopsArea")
+	
+	
+	camera = $Camera2D
+	hud = $HUD
+	timer_obs = $Timers/TimerObs
+	timer_paradas = $Timers/TimerParadas
+	timer_santuarios = $Timers/TimerSantuarios
+	traveled_distance = 0
 
