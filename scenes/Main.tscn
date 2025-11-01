@@ -15,9 +15,6 @@ position = Vector2(211, 407)
 
 [node name="HUD" parent="." instance=ExtResource("4")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(512, 300)
-
 [node name="Carril1" type="Marker2D" parent="."]
 position = Vector2(1078, 462)
 
@@ -49,6 +46,9 @@ autostart = true
 [node name="TimerSantuarios" type="Timer" parent="Timers"]
 wait_time = 3.0
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 300)
 
 [connection signal="timeout" from="Timers/TimerPasajeros" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_pasajeros_timeout"]

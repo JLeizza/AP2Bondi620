@@ -6,6 +6,7 @@
 size = Vector2(36.25, 11.1667)
 
 [node name="FireTires" type="Area2D"]
+collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -26)

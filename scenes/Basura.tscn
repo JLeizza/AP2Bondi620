@@ -6,6 +6,7 @@
 size = Vector2(31.8333, 9.16667)
 
 [node name="Basura" type="Area2D"]
+collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.592424, 0.592424)
