@@ -21,10 +21,15 @@ var ult_obstaculo = null
 var bondi
 var camera
 var hud
+
+#Timers
 var timer_obs
 var timer_paradas
 var timer_santuarios
 var timer_speed
+var timer_game_over
+
+#Colliders
 var bondi_obs_collider 
 var bondi_stop_collider
 
@@ -161,6 +166,8 @@ func init_variables():
 	posParada = $PosParada
 	camera = $Camera2D
 	hud = $HUD
+	
+	timer_game_over = $HUD/Temporizador
 	timer_speed = $Timers/TimerAumentoSpeed
 	timer_obs = $Timers/TimerObs
 	timer_paradas = $Timers/TimerParadas
@@ -170,6 +177,7 @@ func init_variables():
 # Timers
 func set_timers():
 	
+	timer_game_over.timeout.connect(game_over)
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
 	timer_speed.timeout.connect(_on_timer_aumento_speed_timeout)
@@ -188,6 +196,7 @@ func check_game_over():
 
 func game_over():
 	get_tree().paused = true
+	$HUD/PerderNivel.show()
 	
 
 func _on_timer_aumento_speed_timeout():
