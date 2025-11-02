@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgdugm45aywue"]
+
+[ext_resource type="Texture2D" uid="uid://cuqi1e7wldk15" path="res://sprites/Pomberito.PNG" id="1_ihupf"]
+
+[node name="Pomberito" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, -1)
+scale = Vector2(0.393805, 0.393805)
+texture = ExtResource("1_ihupf")
