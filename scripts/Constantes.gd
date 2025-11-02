@@ -17,5 +17,5 @@ const OBS_SPAWN_TIME = 10
 const DAÑO_OBSTACULO = 1
 const DAÑO_SM = 2
 const HEALT_SANT_GG = 1
-const BUFF_VELOCIDAD_SM = 10
+const BUFF_VELOCIDAD_SM = 100
 

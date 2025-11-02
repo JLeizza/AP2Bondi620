@@ -17,4 +17,4 @@ func _process(delta):
 func activate(bondi):
 
 		bondi.take_damage(Cte.DAÑO_SM)
-		bondi.modify_speed(10, 30)
+		bondi.modify_speed(Cte.BUFF_VELOCIDAD_SM, 30)
