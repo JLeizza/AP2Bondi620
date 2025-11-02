@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(32.3541, 9.60417)
 
-[node name="Basura" type="Area2D"]
+[node name="Cascote" type="Area2D"]
 collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

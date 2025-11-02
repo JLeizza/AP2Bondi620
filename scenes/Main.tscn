@@ -47,6 +47,8 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[node name="TimerAumentoSpeed" type="Timer" parent="Timers"]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 300)
 
@@ -54,3 +56,4 @@ position = Vector2(512, 300)
 [connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerParadas" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerSantuarios" to="." method="_on_timer_pasajeros_timeout"]
+[connection signal="timeout" from="Timers/TimerAumentoSpeed" to="." method="_on_timer_aumento_speed_timeout"]

@@ -24,6 +24,7 @@ var hud
 var timer_obs
 var timer_paradas
 var timer_santuarios
+var timer_speed
 var bondi_obs_collider 
 var bondi_stop_collider
 
@@ -42,14 +43,10 @@ func _ready():
 	print("=== INICIALIZACIÓN COMPLETA ===")
 
 func _process(_delta):
-	speed = int(Cte.START_SPEED + (traveled_distance / Cte.SPEED_MODIFIER))
-	bondi.position.x += speed
 	camera.position.x = bondi.position.x - Cte.CAMERA_OFFSET_X
 	traveled_distance += int(speed / Cte.DIST_MODIFIER)
 	bondi.z_index = int(bondi.position.y)
 	check_game_over()
-
-
 
 # Generación randomizada
 func gen_santuario():
@@ -80,12 +77,12 @@ func gen_obstaculos():
 	while obs_tipo == ult_obstaculo and tipos_obstaculos.size() > 1:
 		obs_tipo = tipos_obstaculos.pick_random()
 	
-	print("  Tipo elegido: ", obs_tipo)
+#	print("  Tipo elegido: ", obs_tipo)
 	
 	# Instanciarlo
 	var obs = obs_tipo.instantiate()
 	ult_obstaculo = obs_tipo
-	print("  Obstáculo instanciado: ", obs)
+#	print("  Obstáculo instanciado: ", obs)
 	
 	# Randomizar carril
 	var carril_elegido = carriles.pick_random()
@@ -103,11 +100,11 @@ func gen_obstaculos():
 	obs.area_entered.connect(hit_obstacule.bind(obs))
 	
 	add_child(obs)
-	print("  === DEBUG OBSTÁCULO ===")
-	print("  Carril Y elegido: ", spawn_y)
-	print("  Obstáculo Y final: ", obs.position.y)
-	print("  Obstáculo z_index: ", obs.z_index)
-	print("  Bondi z_index: ", bondi.z_index)
+#	print("  === DEBUG OBSTÁCULO ===")
+#	print("  Carril Y elegido: ", spawn_y)
+#	print("  Obstáculo Y final: ", obs.position.y)
+#	print("  Obstáculo z_index: ", obs.z_index)
+#	print("  Bondi z_index: ", bondi.z_index)
 	
 func remove_obs(obs):
 	obs.queue_free()
@@ -121,6 +118,16 @@ func hit_obstacule(body, obs):
 		print("Colisione con un objeto que no es ObstaculesArea")
 		print("Body: ", body)
 		print("Padre de body: ", body.get_parent())
+
+func hit_sant(body, sant):
+	if body == bondi_stop_collider:
+		if Input.is_action_pressed("stop"):
+			sant.activate(bondi)
+			print("Colisione con un santuario")
+#	else: 
+#		print("Colisione con un objeto que no es StopsArea")
+#		print("Body: ", body)
+#		print("Padre de body: ", body.get_parent())
 		
 func _on_timer_obs_timeout():
 	#print(">>> Timer obstáculos activado!")
@@ -139,7 +146,6 @@ func init_variables():
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
 	
-	
 	carriles = [$Carril1, $Carril2]
 	
 	posSantuarios = $PosSantuario
@@ -155,6 +161,7 @@ func init_variables():
 	posParada = $PosParada
 	camera = $Camera2D
 	hud = $HUD
+	timer_speed = $Timers/TimerAumentoSpeed
 	timer_obs = $Timers/TimerObs
 	timer_paradas = $Timers/TimerParadas
 	timer_santuarios = $Timers/TimerSantuarios
@@ -165,6 +172,7 @@ func set_timers():
 	
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
+	timer_speed.timeout.connect(_on_timer_aumento_speed_timeout)
 	
 	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
 	timer_obs.start()
@@ -181,3 +189,7 @@ func check_game_over():
 func game_over():
 	get_tree().paused = true
 	
+
+func _on_timer_aumento_speed_timeout():
+	bondi.speed += 5
+	print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
