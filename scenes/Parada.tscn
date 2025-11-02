@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6mut4yjiad5d"]
 
-[ext_resource type="Texture2D" path="res://sprites/Parada.png (1).png" id="1_1ep0v"]
+[ext_resource type="Texture2D" uid="uid://doupquwvlwhpm" path="res://sprites/Parada.png (1).png" id="1_1ep0v"]
 [ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]

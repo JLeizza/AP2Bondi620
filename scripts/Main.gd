@@ -109,7 +109,16 @@ func gen_obstaculos():
 #	print("  Obstáculo Y final: ", obs.position.y)
 #	print("  Obstáculo z_index: ", obs.z_index)
 #	print("  Bondi z_index: ", bondi.z_index)
+
+func gen_parada():
+	var parada = parada_scene.instantiate()
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
+	var spawn_y = posParada.position.y
+	parada.position = Vector2(spawn_x, spawn_y)
+	parada.z_index = bondi.z_index -1
 	
+	add_child(parada)
+
 func remove_obs(obs):
 	obs.queue_free()
 	obstaculos.erase(obs)
@@ -138,7 +147,7 @@ func _on_timer_obs_timeout():
 	gen_obstaculos()
 
 func _on_timer_paradas_timeout():
-	pass # Replace with function body.
+	gen_parada()
 
 func _on_timer_santuarios_timeout():
 	#print(">>> Timer santuarios activado!")
@@ -184,14 +193,19 @@ func set_timers():
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
 	timer_speed.timeout.connect(_on_timer_aumento_speed_timeout)
+	timer_paradas.timeout.connect(_on_timer_paradas_timeout)
 	
-	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
 	timer_obs.start()
 	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
 	
-	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
 	timer_santuarios.start()
 	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
+	
+	timer_paradas.start()
+	print("  Timer paradas: ", timer_paradas.wait_time, "s")
+	
+	timer_speed.start()
+	print("  Timer aumento de velocitdad: ", timer_speed.wait_time, "s")
 
 func check_game_over():
 	if bondi.lifes <= 0:
