@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://brow10l0fiphh"]
+[gd_scene load_steps=4 format=3 uid="uid://brow10l0fiphh"]
 
 [ext_resource type="Texture2D" uid="uid://vlfhij7w6xqa" path="res://sprites/SantuarioSM.png" id="1"]
+[ext_resource type="Script" path="res://scenes/SantuarioSM.gd" id="1_ypyu8"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(13, 29.25)
 
-[node name="FireTires" type="Area2D"]
+[node name="SantuarioSM" type="Area2D"]
 collision_layer = 2
 collision_mask = 4
+script = ExtResource("1_ypyu8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1")
