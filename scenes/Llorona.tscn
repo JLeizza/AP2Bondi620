@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv4etm5vemuua"]
+[gd_scene load_steps=2 format=3 uid="uid://ddj5i2mijthov"]
 
 [ext_resource type="Texture2D" uid="uid://ba003f83x4khg" path="res://sprites/Llorona.PNG" id="1_fds2q"]
 
 [node name="Llorona" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -0.999992)
-scale = Vector2(0.40411, 0.40411)
+position = Vector2(0, -1)
+scale = Vector2(0.510274, 0.510274)
 texture = ExtResource("1_fds2q")

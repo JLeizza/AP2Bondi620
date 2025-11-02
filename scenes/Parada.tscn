@@ -31,12 +31,12 @@ position = Vector2(3, 20)
 shape = SubResource("RectangleShape2D_eksim")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2(4.76837e-07, 3)
 rotation = 3.14159
 scale = Vector2(0.0483543, 0.0409134)
 color = Color(0.972182, 0.848894, 0.360467, 1)
-energy = 2.89
 range_layer_min = -3
 range_layer_max = 1
 texture = SubResource("GradientTexture2D_ninxn")
