@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgjdsp10o34e3"]
+
+[ext_resource type="Texture2D" uid="uid://vjxbn6wowsop" path="res://sprites/MalePass2.png" id="1_g4awn"]
+
+[node name="Pasajero2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.86102e-06)
+scale = Vector2(0.601105, 0.588521)
+texture = ExtResource("1_g4awn")

@@ -19,3 +19,7 @@ const DAÑO_SM = 2
 const HEALT_SANT_GG = 1
 const BUFF_VELOCIDAD_SM = 100
 
+##PARADA
+const MIN_PASAJEROS= 1
+const MAX_PASAJEROS= 3
+
