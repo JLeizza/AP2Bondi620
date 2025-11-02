@@ -15,10 +15,10 @@ script = ExtResource("1_01wxg")
 [node name="Pasajeros" type="Label" parent="."]
 offset_left = 16.0
 offset_top = 14.0
-offset_right = 343.0
-offset_bottom = 70.0
+offset_right = 342.0
+offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("3_ls1no")
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 40
 text = "PASAJEROS:"
 uppercase = true
 
@@ -36,7 +36,7 @@ wait_time = 20.0
 one_shot = true
 
 [node name="PerderNivel" type="VBoxContainer" parent="."]
-visible = false
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -65,10 +65,11 @@ layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_pressed_color = Color(0.678431, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ls1no")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhf2t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_qb80j")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_sel6i")
+action_mode = 0
 text = "REINICIAR"
 
 [connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]

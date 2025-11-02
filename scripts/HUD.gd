@@ -31,8 +31,9 @@ func tiempo_atras():
 #funcion que muestra la pantalla de perder
 func perder():
 	perder_nivel.visible = true
-	emit_signal("perder_signal")
+
 
 #señal que al apretar el boton se reinicie el temporizador
 func _on_reiniciar_boton_pressed():
-	_ready()
+	emit_signal("reiniciar_signal")
+	print("Enviada la señal")
