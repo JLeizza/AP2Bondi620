@@ -4,6 +4,9 @@ var pasajeros
 var enemigos
 var posiciones
 
+var enemigos_activos
+var cant_pasajeros
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +24,16 @@ func init_parada():
 		var pasajero_instance = pasajeros[i].instantiate()
 		pasajero_instance.position = posiciones[i].position
 		add_child(pasajero_instance)
+	cant_pasajeros = pasajeros.size()
+	
+	if randf() < Cte.ENEMY_SPAWN_CHANCE:
+		enemigos = pick_random_elements(enemigos, Cte.MIN_ENEMIGOS, Cte.MAX_ENEMIGOS)
+		if enemigos.size() > 0:
+			for i in range (enemigos.size()):
+				var enemigo_instance = enemigos[i].instantiate()
+				enemigo_instance.position = posiciones[i+cant_pasajeros].position
+				add_child(enemigo_instance)
+		
 
 func pick_random_elements(array, min, max):
 	var count = randi_range(min, max)
@@ -45,6 +58,13 @@ func init_variables():
 	posiciones = [
 		$PosicionesMarkers/Posicion1,
 		$PosicionesMarkers/Posicion2,
-		$PosicionesMarkers/Posicion3
+		$PosicionesMarkers/Posicion3,
+		$PosicionesMarkers/Posicion4
 	]
+func activate():
+	if enemigos_activos != 0:
+		for enemigo in enemigos_activos:
+			enemigo.activate()
+	return cant_pasajeros
+	
 	
