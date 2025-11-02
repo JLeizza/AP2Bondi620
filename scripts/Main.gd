@@ -33,7 +33,6 @@ var timer_game_over
 var bondi_obs_collider 
 var bondi_stop_collider
 
-
 # Variables del juego
 var traveled_distance: int = 0
 var speed: float = 0.0
@@ -173,6 +172,9 @@ func init_variables():
 	timer_paradas = $Timers/TimerParadas
 	timer_santuarios = $Timers/TimerSantuarios
 	traveled_distance = 0
+	
+	#Init la señal de reiniciar el juego
+	hud.reiniciar_signal.connect(_on_reiniciar_game)
 
 # Timers
 func set_timers():
@@ -196,9 +198,13 @@ func check_game_over():
 
 func game_over():
 	get_tree().paused = true
-	$HUD/PerderNivel.show()
+	$HUD.perder()
 	
 
 func _on_timer_aumento_speed_timeout():
 	bondi.speed += 5
 	print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
+
+func _on_reiniciar_game():
+	get_tree().paused = false
+	get_tree().reload_current_scene()
