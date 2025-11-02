@@ -22,7 +22,7 @@ position = Vector2(1078, 462)
 position = Vector2(1078, 525)
 
 [node name="PosParada" type="Marker2D" parent="."]
-position = Vector2(1343, 397)
+position = Vector2(1337, 343)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
 position = Vector2(1343, 530)
