@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dudw6ncb78jr1"]
+[gd_scene load_steps=6 format=3 uid="uid://b6mut4yjiad5d"]
 
-[ext_resource type="Texture2D" uid="uid://doupquwvlwhpm" path="res://sprites/Parada.png (1).png" id="1_1ep0v"]
+[ext_resource type="Texture2D" path="res://sprites/Parada.png (1).png" id="1_1ep0v"]
 [ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
-[ext_resource type="PackedScene" uid="uid://31uiiau024kf" path="res://scenes/pasajera_1.tscn" id="3_7pwv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]
 size = Vector2(212, 51.5)
@@ -32,10 +31,11 @@ position = Vector2(3, 20)
 shape = SubResource("RectangleShape2D_eksim")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+show_behind_parent = true
 position = Vector2(4.76837e-07, 3)
 rotation = 3.14159
 scale = Vector2(0.0483543, 0.0409134)
-color = Color(1, 0.835294, 0.368627, 1)
+color = Color(0.972182, 0.848894, 0.360467, 1)
 energy = 2.89
 range_layer_min = -3
 range_layer_max = 1
@@ -56,6 +56,3 @@ position = Vector2(14, 22)
 
 [node name="Posicion4" type="Marker2D" parent="PosicionesMarkers"]
 position = Vector2(56, 22)
-
-[node name="Pasajera1" parent="." instance=ExtResource("3_7pwv1")]
-position = Vector2(-55, 23)

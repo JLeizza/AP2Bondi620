@@ -17,10 +17,10 @@ func _process(delta):
 func init_parada():
 	pasajeros = pick_random_elements(pasajeros, Cte.MIN_PASAJEROS, Cte.MAX_PASAJEROS)
 	for i in range(pasajeros.size()):
-		var sprite = Sprite2D.new()
-		sprite.texture = pasajeros[i]
-		sprite.position = posiciones[i].position
-		add_child(sprite)
+		# Instanciar la escena en lugar de crear un Sprite2D
+		var pasajero_instance = pasajeros[i].instantiate()
+		pasajero_instance.position = posiciones[i].position
+		add_child(pasajero_instance)
 
 func pick_random_elements(array, min, max):
 	var count = randi_range(min, max)
@@ -30,11 +30,11 @@ func pick_random_elements(array, min, max):
 
 func init_variables():
 	pasajeros = [
-	preload("res://sprites/FemPass1.png"),
-	preload("res://sprites/FemPass2.png"),
-	preload("res://sprites/Fisura 1.png"),
-	preload("res://sprites/MalePass1.png"),
-	preload("res://sprites/MalePass2.png") 
+	preload("res://scenes/pasajera_1.tscn"),
+	preload("res://scenes/pasajera_2.tscn"),
+	preload("res://scenes/pasajero_1.tscn"),
+	preload("res://scenes/pasajero_2.tscn"),
+	preload("res://scenes/pasajero_borracho.tscn") 
 	]
 	
 	enemigos = [
