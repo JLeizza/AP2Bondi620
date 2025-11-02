@@ -43,38 +43,13 @@ func _ready():
 
 func _process(_delta):
 	speed = int(Cte.START_SPEED + (traveled_distance / Cte.SPEED_MODIFIER))
-	
 	bondi.position.x += speed
 	camera.position.x = bondi.position.x - Cte.CAMERA_OFFSET_X
 	traveled_distance += int(speed / Cte.DIST_MODIFIER)
 	bondi.z_index = int(bondi.position.y)
-	
+	check_game_over()
 
 
-func _on_timer_obs_timeout():
-	#print(">>> Timer obstáculos activado!")
-	gen_obstaculos()
-
-func _on_timer_paradas_timeout():
-	pass # Replace with function body.
-
-func _on_timer_santuarios_timeout():
-	#print(">>> Timer santuarios activado!")
-	gen_santuario()
-
-# Timers
-func set_timers():
-	
-	timer_obs.timeout.connect(_on_timer_obs_timeout)
-	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
-	
-	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
-	timer_obs.start()
-	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
-	
-	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
-	timer_santuarios.start()
-	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
 
 # Generación randomizada
 func gen_santuario():
@@ -125,7 +100,7 @@ func gen_obstaculos():
 	else:  # Carril 2 (el de abajo)
 		obs.z_index = bondi.z_index + 1 #Siempre adelante
 	
-	obs.body_entered.connect(hit_obstacule)
+	obs.area_entered.connect(hit_obstacule.bind(obs))
 	
 	add_child(obs)
 	print("  === DEBUG OBSTÁCULO ===")
@@ -138,15 +113,29 @@ func remove_obs(obs):
 	obs.queue_free()
 	obstaculos.erase(obs)
 	
-func hit_obstacule(body):
+func hit_obstacule(body, obs):
 	if body == bondi_obs_collider:
 		bondi.take_damage(Cte.DAÑO_OBSTACULO)
+		remove_obs(obs)
 	else: 
-		print("Colisione con un objeto que no es Bondi")
+		print("Colisione con un objeto que no es ObstaculesArea")
+		print("Body: ", body)
+		print("Padre de body: ", body.get_parent())
 		
+func _on_timer_obs_timeout():
+	#print(">>> Timer obstáculos activado!")
+	gen_obstaculos()
+
+func _on_timer_paradas_timeout():
+	pass # Replace with function body.
+
+func _on_timer_santuarios_timeout():
+	#print(">>> Timer santuarios activado!")
+	gen_santuario()
+	
 func init_variables():
 	
-		# Inicializar arrays
+	# Inicializar arrays
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
 	
@@ -156,13 +145,14 @@ func init_variables():
 	posSantuarios = $PosSantuario
 	print("PosSantuario posición Y: ", posSantuarios.position.y)
 	
-	posParada = $PosParada
+	#Init del Bondi
 	bondi = $Bondi
 	bondi.z_index = int(bondi.position.y)
 	bondi_obs_collider = bondi.get_node("ObstaculesArea")
 	bondi_stop_collider = bondi.get_node("StopsArea")
 	
-	
+	#Init del resto de nodos
+	posParada = $PosParada
 	camera = $Camera2D
 	hud = $HUD
 	timer_obs = $Timers/TimerObs
@@ -170,3 +160,24 @@ func init_variables():
 	timer_santuarios = $Timers/TimerSantuarios
 	traveled_distance = 0
 
+# Timers
+func set_timers():
+	
+	timer_obs.timeout.connect(_on_timer_obs_timeout)
+	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
+	
+	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
+	timer_obs.start()
+	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
+	
+	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
+	timer_santuarios.start()
+	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
+
+func check_game_over():
+	if bondi.lifes <= 0:
+		game_over()
+
+func game_over():
+	get_tree().paused = true
+	
