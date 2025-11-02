@@ -6,7 +6,7 @@ var cascote_scene = preload("res://scenes/Cascote.tscn")
 var gomas_scene = preload("res://scenes/Gomas.tscn")
 var santuario_gauchito = preload("res://scenes/SantuarioGG.tscn")
 var santuario_muerte = preload("res://scenes/SantuarioSM.tscn")
-
+var parada_scene = preload("res://scenes/Parada.tscn")
 var tipos_obstaculos = []
 var buffs = []
 
@@ -149,6 +149,7 @@ func init_variables():
 	# Inicializar arrays
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
+	
 	
 	carriles = [$Carril1, $Carril2]
 	
