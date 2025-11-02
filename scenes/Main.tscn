@@ -31,10 +31,6 @@ position = Vector2(1343, 530)
 
 [node name="Timers" type="Timer" parent="."]
 
-[node name="TimerPasajeros" type="Timer" parent="Timers"]
-wait_time = 3.0
-autostart = true
-
 [node name="TimerObs" type="Timer" parent="Timers"]
 wait_time = 3.0
 autostart = true
@@ -52,7 +48,6 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 300)
 
-[connection signal="timeout" from="Timers/TimerPasajeros" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerParadas" to="." method="_on_timer_pasajeros_timeout"]
 [connection signal="timeout" from="Timers/TimerSantuarios" to="." method="_on_timer_pasajeros_timeout"]
