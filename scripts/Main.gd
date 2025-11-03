@@ -16,6 +16,8 @@ var carriles: Array = []
 var posSantuarios = null
 var posParada = null
 var ult_obstaculo = null
+var current_parada = null
+var total_pasajeros = null
 
 # Referencias a nodos (se inicializan en _ready)
 var bondi
@@ -36,6 +38,7 @@ var bondi_stop_collider
 # Variables del juego
 var traveled_distance: int = 0
 var speed: float = 0.0
+var parado : bool = false
 
 func _ready():
 	print("=== INICIALIZANDO MAIN ===")
@@ -109,7 +112,16 @@ func gen_obstaculos():
 #	print("  Obstáculo Y final: ", obs.position.y)
 #	print("  Obstáculo z_index: ", obs.z_index)
 #	print("  Bondi z_index: ", bondi.z_index)
+
+func gen_parada():
+	var parada = parada_scene.instantiate()
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
+	var spawn_y = posParada.position.y
+	parada.position = Vector2(spawn_x, spawn_y)
+	parada.z_index = bondi.z_index -1
 	
+	add_child(parada)
+
 func remove_obs(obs):
 	obs.queue_free()
 	obstaculos.erase(obs)
@@ -132,13 +144,16 @@ func hit_sant(body, sant):
 #		print("Colisione con un objeto que no es StopsArea")
 #		print("Body: ", body)
 #		print("Padre de body: ", body.get_parent())
-		
+func agregar_pasajeros():
+	total_pasajeros += 1
+	$HUD.update_pasajeros(total_pasajeros)
+
 func _on_timer_obs_timeout():
 	#print(">>> Timer obstáculos activado!")
 	gen_obstaculos()
 
 func _on_timer_paradas_timeout():
-	pass # Replace with function body.
+	gen_parada()
 
 func _on_timer_santuarios_timeout():
 	#print(">>> Timer santuarios activado!")
@@ -150,6 +165,8 @@ func init_variables():
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
 	
+	total_pasajeros = 0
+	$HUD.update_pasajeros(total_pasajeros)
 	
 	carriles = [$Carril1, $Carril2]
 	
@@ -184,14 +201,19 @@ func set_timers():
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
 	timer_speed.timeout.connect(_on_timer_aumento_speed_timeout)
+	timer_paradas.timeout.connect(_on_timer_paradas_timeout)
 	
-	timer_obs.wait_time = Cte.OBS_SPAWN_TIME
 	timer_obs.start()
 	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
 	
-	timer_santuarios.wait_time = Cte.SANT_SPAWN_TIME
 	timer_santuarios.start()
 	print("  Timer santuarios: ", timer_santuarios.wait_time, "s")
+	
+	timer_paradas.start()
+	print("  Timer paradas: ", timer_paradas.wait_time, "s")
+	
+	timer_speed.start()
+	print("  Timer aumento de velocitdad: ", timer_speed.wait_time, "s")
 
 func check_game_over():
 	if bondi.lifes <= 0:
@@ -200,10 +222,9 @@ func check_game_over():
 func game_over():
 	get_tree().paused = true
 	$HUD.perder()
-	
 
 func _on_timer_aumento_speed_timeout():
-	bondi.speed += 5
+	bondi.speed += Cte.TIMER_BUFF_SPEED
 	print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
 
 func _on_reiniciar_game():
