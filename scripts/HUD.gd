@@ -31,7 +31,9 @@ func tiempo_atras():
 #funcion que muestra la pantalla de perder
 func perder():
 	perder_nivel.visible = true
-
+	
+func update_pasajeros(total_pasajeros):
+	$Pasajeros.text= "Pasajeros: " + str(total_pasajeros)
 
 #señal que al apretar el boton se reinicie el temporizador
 func _on_reiniciar_boton_pressed():

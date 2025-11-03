@@ -22,7 +22,7 @@ position = Vector2(1078, 462)
 position = Vector2(1078, 525)
 
 [node name="PosParada" type="Marker2D" parent="."]
-position = Vector2(1343, 397)
+position = Vector2(1337, 343)
 
 [node name="PosSantuario" type="Marker2D" parent="."]
 position = Vector2(1343, 530)
@@ -32,18 +32,19 @@ position = Vector2(1343, 530)
 [node name="Timers" type="Timer" parent="."]
 
 [node name="TimerObs" type="Timer" parent="Timers"]
-wait_time = 3.0
+wait_time = 10.0
 autostart = true
 
 [node name="TimerParadas" type="Timer" parent="Timers"]
-wait_time = 3.0
+wait_time = 20.0
 autostart = true
 
 [node name="TimerSantuarios" type="Timer" parent="Timers"]
-wait_time = 3.0
+wait_time = 12.0
 autostart = true
 
 [node name="TimerAumentoSpeed" type="Timer" parent="Timers"]
+wait_time = 15.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 300)
