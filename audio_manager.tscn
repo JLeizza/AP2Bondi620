@@ -10,7 +10,7 @@ script = ExtResource("1_mjl2p")
 
 [node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ytp2n")
-volume_db = 10.0
+volume_db = -19.613
 
 [node name="SonidoMotor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_y745s")
