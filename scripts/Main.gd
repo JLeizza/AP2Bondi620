@@ -16,6 +16,8 @@ var carriles: Array = []
 var posSantuarios = null
 var posParada = null
 var ult_obstaculo = null
+var current_parada = null
+var total_pasajeros = null
 
 # Referencias a nodos (se inicializan en _ready)
 var bondi
@@ -36,6 +38,7 @@ var bondi_stop_collider
 # Variables del juego
 var traveled_distance: int = 0
 var speed: float = 0.0
+var parado : bool = false
 
 func _ready():
 	print("=== INICIALIZANDO MAIN ===")
@@ -141,7 +144,10 @@ func hit_sant(body, sant):
 #		print("Colisione con un objeto que no es StopsArea")
 #		print("Body: ", body)
 #		print("Padre de body: ", body.get_parent())
-		
+func agregar_pasajeros():
+	total_pasajeros += 1
+	$HUD.update_pasajeros(total_pasajeros)
+
 func _on_timer_obs_timeout():
 	#print(">>> Timer obstáculos activado!")
 	gen_obstaculos()
@@ -159,6 +165,8 @@ func init_variables():
 	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
 	buffs = [santuario_gauchito, santuario_muerte]
 	
+	total_pasajeros = 0
+	$HUD.update_pasajeros(total_pasajeros)
 	
 	carriles = [$Carril1, $Carril2]
 	
@@ -214,10 +222,9 @@ func check_game_over():
 func game_over():
 	get_tree().paused = true
 	$HUD.perder()
-	
 
 func _on_timer_aumento_speed_timeout():
-	bondi.speed += 5
+	bondi.speed += Cte.TIMER_BUFF_SPEED
 	print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
 
 func _on_reiniciar_game():
