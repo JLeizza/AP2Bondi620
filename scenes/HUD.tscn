@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://da860gryq61gg"]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
+[ext_resource type="FontFile" uid="uid://dl81wxx845lf4" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qb80j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sel6i"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_01wxg")
+
+[node name="Pasajeros" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 241.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 40
+text = "PASAJEROS:"
+uppercase = true
+
+[node name="TiempoPantalla" type="Label" parent="."]
+offset_left = 839.0
+offset_top = 6.0
+offset_right = 1017.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 69
+text = "00:00"
+
+[node name="Temporizador" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="PerderNivel" type="VBoxContainer" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -49.0
+offset_right = 145.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Perdiste" type="Label" parent="PerderNivel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.678431, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 100
+text = "PERDISTE"
+
+[node name="ReiniciarBoton" type="Button" parent="PerderNivel"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0.678431, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhf2t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qb80j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sel6i")
+action_mode = 0
+text = "REINICIAR"
+
+[connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]

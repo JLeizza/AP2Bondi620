@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfhutyn7hb3ah"]
+
+[ext_resource type="Texture2D" uid="uid://boompq3bgy3jo" path="res://sprites/Fondo/3.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d0t7v00sy6lav" path="res://sprites/Fondo/1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxf2rtcn27ak5" path="res://sprites/Fondo/2.png" id="3"]
+
+[sub_resource type="Gradient" id="Gradient_n2xvf"]
+offsets = PackedFloat32Array(0.0322581, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ty5ft"]
+gradient = SubResource("Gradient_n2xvf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.830275, 0.137615)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -10
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+z_index = -10
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer1"]
+texture = ExtResource("2")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+z_index = -10
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("3")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+z_index = -10
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("1")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="ParallaxLayer3"]
+position = Vector2(887, 195)
+scale = Vector2(4.0625, 3.87109)
+color = Color(0.705882, 0.752941, 0, 1)
+energy = 3.28
+range_layer_min = -10
+texture = SubResource("GradientTexture2D_ty5ft")
+
+[node name="PointLight2D2" type="PointLight2D" parent="ParallaxLayer3"]
+position = Vector2(130, 190)
+scale = Vector2(1.625, 1.57617)
+color = Color(0.705882, 0.752941, 0, 1)
+energy = 2.19
+range_layer_min = -10
+texture = SubResource("GradientTexture2D_ty5ft")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.282353, 0.282353, 0.282353, 1)
+energy = 1.45
+blend_mode = 1
+range_layer_min = -10

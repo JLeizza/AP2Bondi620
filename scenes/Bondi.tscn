@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://fopcwq0vins"]
+
+[ext_resource type="Texture2D" uid="uid://bw6qjxhjf5klg" path="res://sprites/Bondi.png" id="1"]
+[ext_resource type="Script" path="res://scripts/Bondi.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4fp"]
+size = Vector2(503.453, 162.783)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6xh"]
+size = Vector2(335, 23)
+
+[node name="Bondi" type="CharacterBody2D" groups=["Bondi"]]
+position = Vector2(210, 241)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 23)
+scale = Vector2(0.595885, 0.595885)
+texture = ExtResource("1")
+
+[node name="StopsArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="StopsCollision" type="CollisionShape2D" parent="StopsArea"]
+position = Vector2(-13, 29.5)
+scale = Vector2(0.595885, 0.595885)
+shape = SubResource("RectangleShape2D_yf4fp")
+
+[node name="ObstaculesArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="ObstaculeCollision" type="CollisionShape2D" parent="ObstaculesArea"]
+position = Vector2(-1.5, 51.5)
+shape = SubResource("RectangleShape2D_ka6xh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(5, 23)
+scale = Vector2(0.595885, 0.595885)
+build_mode = 1
+polygon = PackedVector2Array(204.737, 100.691, 278.577, 40.2762, 271.865, 23.4944, 270.186, 1.67816, 275.221, -1.67819, 273.543, -43.6326, 261.795, -99.0124, 250.048, -124.185, -256.761, -129.22, -281.934, -110.76, -293.681, -72.1616, -286.968, -70.4834, -292.003, 26.8508, -293.681, 46.9889, -303.75, 48.6671, -307.106, 73.8397, -295.359, 77.1961, -295.359, 87.2651, -224.876, 104.047, -214.807, 119.151, -179.565, 129.22, -137.61, 107.403, 30.2072, 107.403, 63.7707, 127.541, 97.3342, 127.541, 117.472, 105.725)
