@@ -1,12 +1,6 @@
 extends Node
 
 # Carga de obstáculos
-var basura_scene = preload("res://scenes/Basura.tscn")
-var cascote_scene = preload("res://scenes/Cascote.tscn")
-var gomas_scene = preload("res://scenes/Gomas.tscn")
-var santuario_gauchito = preload("res://scenes/SantuarioGG.tscn")
-var santuario_muerte = preload("res://scenes/SantuarioSM.tscn")
-var parada_scene = preload("res://scenes/Parada.tscn")
 var tipos_obstaculos = []
 var buffs = []
 
@@ -69,7 +63,7 @@ func gen_santuario():
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posSantuarios.position.y
 	sant.position = Vector2(spawn_x, spawn_y)
-	sant.z_index = bondi.z_index + 1
+	sant.z_index = bondi.z_index + 1	
 	
 	print("  Posición asignada: ", sant.position)
 	add_child(sant)
@@ -114,7 +108,7 @@ func gen_obstaculos():
 #	print("  Bondi z_index: ", bondi.z_index)
 
 func gen_parada():
-	var parada = parada_scene.instantiate()
+	var parada =  Cte.PARADA_SCENE.instantiate()
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posParada.position.y
 	parada.position = Vector2(spawn_x, spawn_y)
@@ -162,8 +156,8 @@ func _on_timer_santuarios_timeout():
 func init_variables():
 	
 	# Inicializar arrays
-	tipos_obstaculos = [basura_scene, cascote_scene, gomas_scene]
-	buffs = [santuario_gauchito, santuario_muerte]
+	tipos_obstaculos = [Cte.BASURA_SCENE, Cte.CASCOTE_SCENE, Cte.GOMAS_SCENE]
+	buffs = [Cte.SANTUARIO_GAUCHITO, Cte.SANTUARIO_MUERTE]
 	
 	total_pasajeros = 0
 	$HUD.update_pasajeros(total_pasajeros)

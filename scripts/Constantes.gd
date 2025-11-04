@@ -26,3 +26,13 @@ const MIN_ENEMIGOS= 0
 const MAX_ENEMIGOS= 1
 const ENEMY_SPAWN_CHANCE = 0.7
 const TIEMPO_RECOGER_PASAJERO = 1
+
+
+##PACKED SCENESextends Node
+
+const BASURA_SCENE = preload("res://scenes/Basura.tscn")
+const CASCOTE_SCENE = preload("res://scenes/Cascote.tscn")
+const GOMAS_SCENE = preload("res://scenes/Gomas.tscn")
+const SANTUARIO_GAUCHITO = preload("res://scenes/SantuarioGG.tscn")
+const SANTUARIO_MUERTE = preload("res://scenes/SantuarioSM.tscn")
+const PARADA_SCENE = preload("res://scenes/Parada.tscn")

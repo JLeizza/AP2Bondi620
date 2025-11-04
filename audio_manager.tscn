@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwcj625bfetml"]
+[gd_scene load_steps=4 format=3 uid="uid://c1bv1b72jvoft"]
 
 [ext_resource type="Script" path="res://audio_manager.gd" id="1_mjl2p"]
-[ext_resource type="AudioStream" uid="uid://dpfmkl71hmstx" path="res://cumbia villera.wav" id="1_ytp2n"]
 [ext_resource type="AudioStream" uid="uid://ca8wwctt7gduf" path="res://motor.wav" id="2_y745s"]
 [ext_resource type="AudioStream" uid="uid://1jje4cuqo4yr" path="res://grillos.wav" id="3_byovw"]
 
@@ -9,8 +8,7 @@
 script = ExtResource("1_mjl2p")
 
 [node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_ytp2n")
-volume_db = -19.613
+volume_db = 10.0
 
 [node name="SonidoMotor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_y745s")

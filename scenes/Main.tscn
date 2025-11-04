@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dubfgnjb30dlf"]
+[gd_scene load_steps=6 format=3 uid="uid://dubfgnjb30dlf"]
 
 [ext_resource type="PackedScene" uid="uid://bfhutyn7hb3ah" path="res://scenes/BG.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://fopcwq0vins" path="res://scenes/Bondi.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://da860gryq61gg" path="res://scenes/HUD.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://gdbv625cunip" path="res://scenes/timers.tscn" id="5_1pa2w"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
@@ -29,27 +30,7 @@ position = Vector2(1343, 530)
 
 [node name="Pasajeros" type="Node2D" parent="."]
 
-[node name="Timers" type="Timer" parent="."]
-
-[node name="TimerObs" type="Timer" parent="Timers"]
-wait_time = 10.0
-autostart = true
-
-[node name="TimerParadas" type="Timer" parent="Timers"]
-wait_time = 20.0
-autostart = true
-
-[node name="TimerSantuarios" type="Timer" parent="Timers"]
-wait_time = 12.0
-autostart = true
-
-[node name="TimerAumentoSpeed" type="Timer" parent="Timers"]
-wait_time = 15.0
+[node name="Timers" parent="." instance=ExtResource("5_1pa2w")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 300)
-
-[connection signal="timeout" from="Timers/TimerObs" to="." method="_on_timer_pasajeros_timeout"]
-[connection signal="timeout" from="Timers/TimerParadas" to="." method="_on_timer_pasajeros_timeout"]
-[connection signal="timeout" from="Timers/TimerSantuarios" to="." method="_on_timer_pasajeros_timeout"]
-[connection signal="timeout" from="Timers/TimerAumentoSpeed" to="." method="_on_timer_aumento_speed_timeout"]
