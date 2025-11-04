@@ -18,7 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Cte="*res://scripts/Constantes.gd"
-AudioManager="*res://audio_manager.tscn"
+AudioManager="*res://scenes/audio_manager.tscn"
 parada_scene="*res://scenes/Parada.tscn"
 santuario_muerte="*res://scenes/SantuarioSM.tscn"
 santuario_gauchito="*res://scenes/SantuarioSM.tscn"

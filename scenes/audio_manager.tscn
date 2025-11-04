@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://pwq8c8qt60en"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_5aust"]
+[ext_resource type="AudioStream" uid="uid://c7vrepgjqyu4t" path="res://sounds/cumbia villera.wav" id="2_atq2r"]
+[ext_resource type="AudioStream" uid="uid://ca8wwctt7gduf" path="res://sounds/motor.wav" id="2_fjp7i"]
+[ext_resource type="AudioStream" uid="uid://1jje4cuqo4yr" path="res://sounds/grillos.wav" id="3_d2hvo"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_5aust")
+
+[node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_atq2r")
+volume_db = 10.0
+
+[node name="SonidoMotor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fjp7i")
+volume_db = 10.0
+bus = &"FX_Ambiental"
+
+[node name="SonidoGrillos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d2hvo")
+volume_db = 9.0
+bus = &"FX_Ambiental"

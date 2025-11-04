@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7vrepgjqyu4t"
+path="res://.godot/imported/cumbia villera.wav-21f2b581db8a9bb32face857b3f43d82.sample"
+
+[deps]
+
+source_file="res://sounds/cumbia villera.wav"
+dest_files=["res://.godot/imported/cumbia villera.wav-21f2b581db8a9bb32face857b3f43d82.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

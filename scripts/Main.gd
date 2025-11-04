@@ -38,7 +38,7 @@ func _ready():
 	print("=== INICIALIZANDO MAIN ===")
 	
 	init_variables()
-
+	AudioManager.get_node("MusicaDeFondo").volume_db= 2
 	set_timers()
 	
 	print("=== INICIALIZACIÓN COMPLETA ===")
