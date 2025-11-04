@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Cte="*res://scripts/Constantes.gd"
+AudioManager="*res://audio_manager.tscn"
 
 [display]
 
