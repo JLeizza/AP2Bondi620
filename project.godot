@@ -19,6 +19,13 @@ config/icon="res://icon.png"
 
 Cte="*res://scripts/Constantes.gd"
 AudioManager="*res://audio_manager.tscn"
+parada_scene="*res://scenes/Parada.tscn"
+santuario_muerte="*res://scenes/SantuarioSM.tscn"
+santuario_gauchito="*res://scenes/SantuarioSM.tscn"
+gomas_scene="*res://scenes/Gomas.tscn"
+cascote_scene="*res://scenes/Cascote.tscn"
+basura_scene="*res://scenes/Basura.tscn"
+Timers="*res://scenes/timers.tscn"
 
 [display]
 

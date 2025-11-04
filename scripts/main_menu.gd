@@ -5,8 +5,6 @@ extends Control
 func _ready():
 	# para que arranque la música cuando le das play al juego
 	AudioManager.get_node("MusicaDeFondo").play()
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

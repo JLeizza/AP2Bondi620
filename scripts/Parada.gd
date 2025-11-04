@@ -77,6 +77,9 @@ func init_variables():
 	]
 
 func activate():
+	for timer in Timers.get_children():
+		timer.stop()
+	
 	var bondi = get_parent().bondi
 	var duracion_parada = (cant_pasajeros * Cte.TIEMPO_RECOGER_PASAJERO + 1) 
 	
@@ -90,8 +93,9 @@ func activate():
 	
 	if enemigos_activos.size() > 0:
 		for enemigo in enemigos_activos:
-			enemigo.activate()
+#			enemigo.activate()
 			enemigo.hide()
 	
-	
+	for timer in Timers.get_children():
+		timer.start()
 	
