@@ -12,8 +12,13 @@ func _process(delta):
 	for area in overlapping:
 		if area.name == "StopsArea":  # El StopsArea del bondi
 			if Input.is_action_just_pressed("stop"):
-				activate(area.get_parent())  # El padre es el Bondi
+				activate() 
 				queue_free()
 
-func activate(bondi):
-		bondi.heal(Cte.HEALT_SANT_GG)
+func activate():
+	var bondi = get_parent().bondi
+	var duracion_parada = (1 * Cte.TIEMPO_RECOGER_PASAJERO) 
+	
+	bondi.modify_speed(-bondi.speed, duracion_parada)
+		
+	bondi.heal(Cte.HEALT_SANT_GG)

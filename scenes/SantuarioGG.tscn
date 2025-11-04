@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cvevh7firdy2p"]
 
 [ext_resource type="Texture2D" uid="uid://dekjf3c1y4mn" path="res://sprites/SantuarioGG.png" id="1"]
 [ext_resource type="Script" path="res://scripts/SantuarioGG.gd" id="1_j6ccb"]
@@ -7,6 +7,7 @@
 size = Vector2(13, 29.25)
 
 [node name="SantuarioGG" type="Area2D"]
+z_index = 50
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_j6ccb")
