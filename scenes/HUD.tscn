@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://da860gryq61gg"]
+[gd_scene load_steps=7 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
 [ext_resource type="FontFile" uid="uid://dl81wxx845lf4" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
+[ext_resource type="Texture2D" uid="uid://dst4m8yj4rrwf" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
@@ -72,5 +73,28 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_qb80j")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_sel6i")
 action_mode = 0
 text = "REINICIAR"
+
+[node name="Vidas" type="HBoxContainer" parent="."]
+offset_left = 12.0
+offset_top = 538.0
+offset_right = 368.0
+offset_bottom = 608.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Heart 1" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("3_o4kyf")
+
+[node name="Heart 2" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("3_o4kyf")
+
+[node name="Heart 3" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("3_o4kyf")
+
+[node name="Heart 4" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("3_o4kyf")
 
 [connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]
