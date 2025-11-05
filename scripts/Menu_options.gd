@@ -2,6 +2,8 @@ extends Control
 
 @export var audio_bus_name: String
 
+var menu_visible = false
+
 func _ready():
 	pass # Replace with function body.
 

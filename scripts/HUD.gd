@@ -87,3 +87,4 @@ func update_health(amount_life, max_life):
 			hearts[i].texture = heart_full
 		else:
 			hearts[i].texture = heart_rip
+
