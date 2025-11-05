@@ -29,10 +29,10 @@ func _physics_process(_delta):
 		position.y += move
 		
 func take_damage(damage):
-	lifes = self.lifes
 	lifes -= damage
-	
-	print("Me la pegué, me hicieron " + str(damage) + " de daño, y tengo " + str(lifes) + " vidas")
+	if lifes < 0:
+		lifes = 0
+	get_node("/root/Main/HUD").update_health(lifes, Cte.BONDI_MAX_LIFE)
 
 func modify_speed(buff, duration):
 	if duration > 0:
@@ -47,6 +47,4 @@ func heal(amount):
 	lifes += amount
 	if lifes > Cte.BONDI_MAX_LIFE:
 		lifes = Cte.BONDI_MAX_LIFE
-		print(str(lifes) + " vidas")
-	else:
-		print("gracias gaucho = + " + str(amount) + " vida, total " + str(lifes) + " vidas")
+	get_node("/root/Main/HUD").update_health(lifes, Cte.BONDI_MAX_LIFE)

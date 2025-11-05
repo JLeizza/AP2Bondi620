@@ -5,6 +5,13 @@ extends CanvasLayer
 @onready var temporizador = $Temporizador
 @onready var perder_nivel = $PerderNivel
 
+#Array de la vida
+var hearts : Array = []
+
+#Texturas corazon lleno y vacio
+var heart_full : Texture2D = preload("res://sprites/HealthHeart.png")
+var heart_rip : Texture2D = preload("res://sprites/RipHeart.png")
+
 #señales perder y reiniciar
 signal perder_signal
 signal reiniciar_signal
@@ -13,6 +20,7 @@ func _ready():
 	temporizador.start() #Inicializa el temporizador
 	perder_nivel.visible = false #oculta la pantalla de perder
 	emit_signal("reiniciar_signal")
+	hearts = $Vidas.get_children()
 
 func _process(delta):
 	#muestra el tiempo en pantalla
@@ -39,3 +47,10 @@ func update_pasajeros(total_pasajeros):
 func _on_reiniciar_boton_pressed():
 	emit_signal("reiniciar_signal")
 	print("Enviada la señal")
+	
+func update_health(amount_life, max_life):
+	for i in range(len(hearts)):
+		if i < amount_life:
+			hearts[i].texture = heart_full
+		else:
+			hearts[i].texture = heart_rip
