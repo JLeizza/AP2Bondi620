@@ -78,12 +78,9 @@ func gen_obstaculos():
 	while obs_tipo == ult_obstaculo and tipos_obstaculos.size() > 1:
 		obs_tipo = tipos_obstaculos.pick_random()
 	
-#	print("  Tipo elegido: ", obs_tipo)
-	
 	# Instanciarlo
 	var obs = obs_tipo.instantiate()
 	ult_obstaculo = obs_tipo
-#	print("  Obstáculo instanciado: ", obs)
 	
 	# Randomizar carril
 	var carril_elegido = carriles.pick_random()
@@ -134,23 +131,18 @@ func hit_sant(body, sant):
 		if Input.is_action_pressed("stop"):
 			sant.activate(bondi)
 			print("Colisione con un santuario")
-#	else: 
-#		print("Colisione con un objeto que no es StopsArea")
-#		print("Body: ", body)
-#		print("Padre de body: ", body.get_parent())
+
 func agregar_pasajeros():
 	total_pasajeros += 1
 	$HUD.update_pasajeros(total_pasajeros)
 
 func _on_timer_obs_timeout():
-	#print(">>> Timer obstáculos activado!")
 	gen_obstaculos()
 
 func _on_timer_paradas_timeout():
 	gen_parada()
 
 func _on_timer_santuarios_timeout():
-	#print(">>> Timer santuarios activado!")
 	gen_santuario()
 	
 func init_variables():
@@ -223,4 +215,5 @@ func _on_timer_aumento_speed_timeout():
 
 func _on_reiniciar_game():
 	get_tree().paused = false
+	AudioManager.get_node("MusicaDeFondo").stop()
 	get_tree().reload_current_scene()
