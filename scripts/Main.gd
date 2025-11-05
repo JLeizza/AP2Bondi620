@@ -63,7 +63,7 @@ func gen_santuario():
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posSantuarios.position.y
 	sant.position = Vector2(spawn_x, spawn_y)
-	sant.z_index = bondi.z_index + 1	
+	sant.z_index = bondi.z_index + 3	
 	
 	print("  Posición asignada: ", sant.position)
 	add_child(sant)
@@ -112,7 +112,6 @@ func gen_parada():
 	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_X
 	var spawn_y = posParada.position.y
 	parada.position = Vector2(spawn_x, spawn_y)
-	parada.z_index = bondi.z_index -1
 	
 	add_child(parada)
 
