@@ -47,3 +47,6 @@ func heal(amount):
 	lifes += amount
 	if lifes > Cte.BONDI_MAX_LIFE:
 		lifes = Cte.BONDI_MAX_LIFE
+		print(str(lifes) + " vidas")
+	else:
+		print("gracias gaucho = + " + str(amount) + " vida, total " + str(lifes) + " vidas")

@@ -11,6 +11,9 @@ script = ExtResource("3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1")]
 
+[node name="PosSantuario" type="Marker2D" parent="."]
+position = Vector2(1343, 530)
+
 [node name="Bondi" parent="." instance=ExtResource("2")]
 position = Vector2(211, 407)
 
@@ -24,9 +27,6 @@ position = Vector2(1078, 525)
 
 [node name="PosParada" type="Marker2D" parent="."]
 position = Vector2(1337, 343)
-
-[node name="PosSantuario" type="Marker2D" parent="."]
-position = Vector2(1343, 530)
 
 [node name="Pasajeros" type="Node2D" parent="."]
 
