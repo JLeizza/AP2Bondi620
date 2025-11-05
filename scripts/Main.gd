@@ -153,7 +153,6 @@ func _on_timer_santuarios_timeout():
 	gen_santuario()
 	
 func init_variables():
-	
 	# Inicializar arrays
 	tipos_obstaculos = [Cte.BASURA_SCENE, Cte.CASCOTE_SCENE, Cte.GOMAS_SCENE]
 	buffs = [Cte.SANTUARIO_GAUCHITO, Cte.SANTUARIO_MUERTE]
@@ -189,7 +188,6 @@ func init_variables():
 
 # Timers
 func set_timers():
-	
 	timer_game_over.timeout.connect(game_over)
 	timer_obs.timeout.connect(_on_timer_obs_timeout)
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
