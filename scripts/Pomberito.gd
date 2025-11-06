@@ -17,7 +17,5 @@ func activate():
 	
 	var veces = randi_range(1, 3)
 	for i in veces:
-		bondi.speed = Cte.POMBERITO_LOW_SPEED
-		get_tree().create_timer(Cte.POMBERITO_TIMER_LOOP).timeout
-		bondi.speed = Cte.POMBERITO_HIGH_SPEED
-		get_tree().create_timer(Cte.POMBERITO_TIMER_LOOP).timeout
+		bondi.modify_speed(Cte.POMBERITO_LOW_SPEED, Cte.POMBERITO_TIMER_LOOP)
+		bondi.modify_speed(Cte.POMBERITO_HIGH_SPEED, Cte.POMBERITO_TIMER_LOOP)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctgx5j3khcgf5"]
+[gd_scene load_steps=3 format=3 uid="uid://dssjjlwo2odr8"]
 
-[ext_resource type="Script" path="res://scenes/Pomberito.gd" id="1_ahdwu"]
+[ext_resource type="Script" path="res://scripts/Pomberito.gd" id="1_dbh7x"]
+[ext_resource type="Texture2D" uid="uid://r1oyijnlrx8g" path="res://sprites/Pomberito.PNG" id="2_i474j"]
 
 [node name="Pomberito" type="Node2D"]
-script = ExtResource("1_ahdwu")
+script = ExtResource("1_dbh7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.573562, 0.573562)
+texture = ExtResource("2_i474j")
