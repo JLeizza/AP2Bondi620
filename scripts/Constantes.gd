@@ -7,6 +7,8 @@ const DIST_MODIFIER = 10
 const BONDI_MAX_LIFE = 4
 const TIMER_BUFF_SPEED = 4
 const TIMER_BUFF_SPEED_1 = 2
+
+
 #OFFSETS
 const SPAWN_OFFSET_X = 800  # Píxeles adelante del bondi
 const CAMERA_OFFSET_X = -300
