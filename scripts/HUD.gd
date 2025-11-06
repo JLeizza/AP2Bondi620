@@ -27,7 +27,7 @@ func _ready():
 	tiempo.add_theme_color_override("font_color", DEFAULT_COLOR)
 	perder_nivel.visible = false #oculta la pantalla de perder
 	emit_signal("reiniciar_signal")
-	for child in $Vidas2.get_children():
+	for child in $Vidas.get_children():
 		if child is AnimatedSprite2D:
 			hearts.append(child)
 			child.play("Full")

@@ -21,6 +21,9 @@ func _physics_process(_delta):
 		
 	velocity.x = speed
 	move_and_slide()
+
+
+
 # Input de movimiento.
 	if Input.is_action_just_pressed("ui_up") && position.y != initial_position :
 		position.y -= move
@@ -48,3 +51,11 @@ func heal(amount):
 	if lifes > Cte.BONDI_MAX_LIFE:
 		lifes = Cte.BONDI_MAX_LIFE
 	get_node("/root/Main/HUD").update_health(lifes, Cte.BONDI_MAX_LIFE)
+
+func handle_speed():
+	if speed > Cte.MAX_SPEED:
+		speed = Cte.MAX_SPEED
+	elif speed < 300:
+		speed += Cte.TIMER_STRONG_BUFF
+	elif speed >= 300 and speed < 700:
+		speed += Cte.TIMER_LIGHT_BUFF
