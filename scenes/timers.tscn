@@ -3,15 +3,15 @@
 [node name="Timers" type="Timer"]
 
 [node name="TimerObs" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 4.0
 autostart = true
 
 [node name="TimerParadas" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 10.0
 autostart = true
 
 [node name="TimerSantuarios" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 7.0
 autostart = true
 
 [node name="TimerAumentoSpeed" type="Timer" parent="."]
