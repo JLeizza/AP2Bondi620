@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clw0hkn3te8dc"]
+[gd_scene load_steps=15 format=3 uid="uid://clw0hkn3te8dc"]
 
 [ext_resource type="Texture2D" uid="uid://cmri74io3n11k" path="res://sprites/Tutorial/fondo.png" id="1_5x8ks"]
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_w6g45"]
@@ -9,12 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://dsi6x88crf6w7" path="res://sprites/SantuarioGG.png" id="6_ri66s"]
 [ext_resource type="Texture2D" uid="uid://birjd2mvu08rx" path="res://sprites/SantuarioSM.png" id="7_6sqtp"]
 [ext_resource type="Texture2D" uid="uid://6k7qgs0c2wfq" path="res://sprites/Tutorial/obstaculos.png" id="9_c71ye"]
+[ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="10_f4vlx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wum4"]
 texture = ExtResource("1_5x8ks")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3286t"]
 bg_color = Color(0, 0, 0, 0.560784)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rgny"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnc7f"]
+texture = ExtResource("10_f4vlx")
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -219,12 +225,15 @@ text = "-1 VIDA"
 
 [node name="Volver" type="Button" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 509.0
-offset_right = 167.0
-offset_bottom = 545.0
+offset_left = 40.0
+offset_top = 506.0
+offset_right = 192.0
+offset_bottom = 555.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_4atrk")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8rgny")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cnc7f")
 text = "VOLVER"
 
 [connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

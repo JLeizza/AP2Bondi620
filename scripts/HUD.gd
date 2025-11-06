@@ -1,10 +1,5 @@
 extends CanvasLayer
 
-# --- CONSTANTES DE COLOR ---
-const DEFAULT_COLOR = Color(1.0, 1.0, 1.0)  # Blanco (o el color original)
-const WARNING_COLOR = Color.YELLOW          # Amarillo (< 60s)
-const DANGER_COLOR = Color.RED              # Rojo (< 30s)
-const CRITICAL_COLOR = Color(0.6, 0.0, 0.0) # Rojo oscuro (< 10s)
 #variables temporizador progress bars y game over
 @onready var tiempo = $TiempoPantalla
 @onready var temporizador = $Temporizador
@@ -16,10 +11,6 @@ const CRITICAL_COLOR = Color(0.6, 0.0, 0.0) # Rojo oscuro (< 10s)
 #Array de la vida
 var hearts = []
 
-##Texturas corazon lleno y vacio
-#var heart_full : Texture2D = preload("res://sprites/HealthHeart.png")
-#var heart_rip : Texture2D = preload("res://sprites/RipHeart.png")
-
 #señales perder y reiniciar
 signal perder_signal
 signal reiniciar_signal
@@ -27,7 +18,7 @@ signal reiniciar_signal
 func _ready():
 	temporizador.start() #Inicializa el temporizador
 	# Asegurarse de que el color inicial sea el predeterminado
-	tiempo.add_theme_color_override("font_color", DEFAULT_COLOR)
+	tiempo.add_theme_color_override("font_color", Cte.DEFAULT_COLOR)
 	perder_nivel.visible = false #oculta la pantalla de perder
 	emit_signal("reiniciar_signal")
 	for child in $Vidas.get_children():
@@ -56,19 +47,19 @@ func update_timer_color(current_time_left: float):
 
 	# Condición para Rojo Oscuro (Crítico: < 10 segundos)
 	if current_time_left < 10.0:
-		new_color = CRITICAL_COLOR
+		new_color = Cte.CRITICAL_COLOR
 	
 	# Condición para Rojo Brillante (Peligro: < 30 segundos, pero >= 10)
 	elif current_time_left < 30.0:
-		new_color = DANGER_COLOR
+		new_color = Cte.DANGER_COLOR
 		
 	# Condición para Amarillo (Advertencia: < 60 segundos, pero >= 30)
 	elif current_time_left < 60.0:
-		new_color = WARNING_COLOR
+		new_color = Cte.WARNING_COLOR
 		
 	# Condición por defecto (1 minuto o más)
 	else:
-		new_color = DEFAULT_COLOR
+		new_color = Cte.DEFAULT_COLOR
 
 	# Solo actualiza el color si es diferente para evitar llamadas innecesarias
 	# Aunque add_theme_color_override es eficiente, esta es una buena práctica

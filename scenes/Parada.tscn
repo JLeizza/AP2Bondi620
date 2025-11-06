@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6mut4yjiad5d"]
 
 [ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
-[ext_resource type="Texture2D" uid="uid://ctfus0c4ox2ft" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
+[ext_resource type="Texture2D" uid="uid://byau8hryilvnu" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]
 size = Vector2(212, 51.5)
@@ -32,7 +32,6 @@ position = Vector2(0, 49)
 shape = SubResource("RectangleShape2D_eksim")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 show_behind_parent = true
 position = Vector2(4.76837e-07, 3)
 rotation = 3.14159
