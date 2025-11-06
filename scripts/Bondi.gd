@@ -21,9 +21,6 @@ func _physics_process(_delta):
 		
 	velocity.x = speed
 	move_and_slide()
-
-
-
 # Input de movimiento.
 	if Input.is_action_just_pressed("ui_up") && position.y != initial_position :
 		position.y -= move
