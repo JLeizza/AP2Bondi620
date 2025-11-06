@@ -5,11 +5,14 @@ const DEFAULT_COLOR = Color(1.0, 1.0, 1.0)  # Blanco (o el color original)
 const WARNING_COLOR = Color.YELLOW          # Amarillo (< 60s)
 const DANGER_COLOR = Color.RED              # Rojo (< 30s)
 const CRITICAL_COLOR = Color(0.6, 0.0, 0.0) # Rojo oscuro (< 10s)
-#variables temporizador y game over
+#variables temporizador progress bars y game over
 @onready var tiempo = $TiempoPantalla
 @onready var temporizador = $Temporizador
 @onready var perder_nivel = $PerderNivel
-
+@onready var progressbar_verde = $TextureProgressBar
+@onready var progressbar_verde_oscuro =$TextureProgressBar/TextureProgressBar1
+@onready var progressbar_amarillo =$TextureProgressBar/TextureProgressBar2
+@onready var progressbar_rojo =$TextureProgressBar/TextureProgressBar3
 #Array de la vida
 var hearts = []
 
@@ -77,7 +80,7 @@ func perder():
 	perder_nivel.visible = true
 	
 func update_pasajeros(total_pasajeros):
-	$Pasajeros.text= "Pasajeros: " + str(total_pasajeros)
+	$Pasajeros.text= ": " + str(total_pasajeros)
 
 #señal que al apretar el boton se reinicie el temporizador
 func _on_reiniciar_boton_pressed():

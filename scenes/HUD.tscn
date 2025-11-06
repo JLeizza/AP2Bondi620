@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://da860gryq61gg"]
+[gd_scene load_steps=15 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
 
 [ext_resource type="FontFile" uid="uid://coy3ipytdevug" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
 [ext_resource type="Texture2D" uid="uid://cfntf04keohho" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
+[ext_resource type="Texture2D" uid="uid://cc8irmiv2eyjm" path="res://sprites/icono_pasajero.png" id="3_rpnlk"]
 [ext_resource type="Texture2D" uid="uid://d0mvwa3wbxlam" path="res://sprites/Sprites progress bar/32x32_circle_bar_over.png" id="4_snqrv"]
 [ext_resource type="Texture2D" uid="uid://c3ddguy07fymy" path="res://sprites/Sprites progress bar/32x32 circle bar progress green.png" id="5_o0jxl"]
 [ext_resource type="Texture2D" uid="uid://cf6r5unahhkwp" path="res://sprites/Sprites progress bar/32x32 circle bar progress dark green.png" id="6_sihw5"]
 [ext_resource type="Texture2D" uid="uid://dr3qoxxg7m8dy" path="res://sprites/Sprites progress bar/32x32 circle bar progress orange.png" id="7_1u3pu"]
 [ext_resource type="Texture2D" uid="uid://cifjby3v27jwt" path="res://sprites/Sprites progress bar/32x32_circle_bar_under.png" id="8_6art5"]
 [ext_resource type="Texture2D" uid="uid://bq6mxsbtitstr" path="res://sprites/Sprites progress bar/32x32 circle bar progress red.png" id="9_n8lfl"]
->>>>>>> main
+[ext_resource type="FontFile" uid="uid://fla00pom2ncr" path="res://fonts/PressStart2P.ttf" id="10_qyvku"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
@@ -22,19 +23,32 @@
 script = ExtResource("1_01wxg")
 
 [node name="Pasajeros" type="Label" parent="."]
-offset_left = 656.0
-offset_top = 10.0
-offset_right = 936.0
-offset_bottom = 59.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = 55.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_ls1no")
 theme_override_font_sizes/font_size = 50
-text = "PASAJEROS:"
+text = ":"
 uppercase = true
 
+[node name="Sprite2D" type="Sprite2D" parent="Pasajeros"]
+position = Vector2(-24, 24)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_rpnlk")
+
 [node name="TiempoPantalla" type="Label" parent="."]
-offset_left = 396.0
-offset_right = 574.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.0
+offset_right = 89.0
 offset_bottom = 66.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_ls1no")
 theme_override_font_sizes/font_size = 69
 text = "00:00"
@@ -108,10 +122,10 @@ texture = ExtResource("3_o4kyf")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 modulate = Color(1, 1, 1, 0.545098)
-offset_left = 16.0
-offset_top = 494.0
-offset_right = 216.0
-offset_bottom = 694.0
+offset_left = 8.0
+offset_top = 495.0
+offset_right = 208.0
+offset_bottom = 695.0
 value = 100.0
 fill_mode = 4
 nine_patch_stretch = true
@@ -119,7 +133,6 @@ texture_over = ExtResource("4_snqrv")
 texture_progress = ExtResource("5_o0jxl")
 radial_initial_angle = 270.0
 radial_fill_degrees = 45.0
-metadata/_edit_group_ = true
 
 [node name="TextureProgressBar1" type="TextureProgressBar" parent="TextureProgressBar"]
 modulate = Color(1, 1, 1, 0.545098)
@@ -169,5 +182,14 @@ texture_progress = ExtResource("9_n8lfl")
 radial_initial_angle = 45.0
 radial_fill_degrees = 45.0
 
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 71.0
+offset_right = 158.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("10_qyvku")
+theme_override_font_sizes/font_size = 11
+text = "KM/H: 60"
 
 [connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]
