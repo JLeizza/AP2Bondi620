@@ -12,15 +12,14 @@ func _process(delta):
 	for area in overlapping:
 		if area.name == "StopsArea":
 			if Input.is_action_just_pressed("stop"):
-				print("Espacio presionado!") 
 				activate()
 				condicion()
 
 func condicion():
-	if GameState.pasajeros >= 10:
+	if GameState.pasajeros >= 20:
 		GameState.emit_signal("ganar_signal")
 	else:
-		print("Todavía faltan pasajeros: ", 10 - GameState.pasajeros)
+		print("Todavía faltan pasajeros: ", 20 - GameState.pasajeros)
 		
 
 func activate():	

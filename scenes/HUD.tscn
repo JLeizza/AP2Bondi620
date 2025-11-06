@@ -230,7 +230,7 @@ theme_override_font_sizes/font_size = 69
 text = "00:00"
 
 [node name="Temporizador" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 270.0
 one_shot = true
 
 [node name="PerderNivel" type="VBoxContainer" parent="."]
@@ -421,6 +421,7 @@ offset_right = -348.0
 offset_bottom = -334.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_ls1no")
 theme_override_font_sizes/font_size = 40
 text = "VOLVER AL MENU"
