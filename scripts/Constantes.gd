@@ -4,7 +4,7 @@ extends Node
 const START_SPEED = 0
 const MAX_SPEED = 600
 const DIST_MODIFIER = 10
-const BONDI_MAX_LIFE = 4
+const BONDI_MAX_LIFE = 5
 const TIMER_STRONG_BUFF = 4
 const TIMER_LIGHT_BUFF = 2
 
@@ -17,7 +17,7 @@ const CAMERA_OFFSET_X = -300
 const SANT_SPAWN_TIME = 12 #Este tiempo es para debug mas facil, en el juego final diria que sea aprox el doble
 const OBS_SPAWN_TIME = 5
 const DAÑO_OBSTACULO = 1
-const DAÑO_SM = 1
+const DAÑO_SM = 2
 const HEALT_SANT_GG = 1
 const BUFF_VELOCIDAD_SM = 100
 
@@ -44,3 +44,8 @@ const GOMAS_SCENE = preload("res://scenes/Gomas.tscn")
 const SANTUARIO_GAUCHITO = preload("res://scenes/SantuarioGG.tscn")
 const SANTUARIO_MUERTE = preload("res://scenes/SantuarioSM.tscn")
 const PARADA_SCENE = preload("res://scenes/Parada.tscn")
+
+const DEFAULT_COLOR = Color(1.0, 1.0, 1.0)  # Blanco (o el color original)
+const WARNING_COLOR = Color.YELLOW          # Amarillo (< 60s)
+const DANGER_COLOR = Color.RED              # Rojo (< 30s)
+const CRITICAL_COLOR = Color(0.6, 0.0, 0.0) # Rojo oscuro (< 10s)
