@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Audio/audio_manager.gd" id="1_mjl2p"]
+[ext_resource type="AudioStream" uid="uid://ca8wwctt7gduf" path="res://motor.wav" id="2_y745s"]
+[ext_resource type="AudioStream" uid="uid://1jje4cuqo4yr" path="res://Audio/grillos.wav" id="3_byovw"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_mjl2p")
+
+[node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
+volume_db = -19.613
+
+[node name="SonidoMotor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_y745s")
+volume_db = 10.0
+bus = &"FX_Ambiental"
+
+[node name="SonidoGrillos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_byovw")
+volume_db = 9.0
+bus = &"FX_Ambiental"
