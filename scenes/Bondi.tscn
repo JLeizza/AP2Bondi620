@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://fopcwq0vins"]
+[gd_scene load_steps=8 format=3 uid="uid://fopcwq0vins"]
 
-[ext_resource type="Texture2D" uid="uid://bf8t5uck6kv22" path="res://sprites/Bondi.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dheuk22x4d27k" path="res://sprites/Bondi.png" id="1"]
 [ext_resource type="Script" path="res://scripts/Bondi.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c4xsmscbumfdi" path="res://sprites/luz_bondi.png" id="3_x3vpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4fp"]
 size = Vector2(503.453, 162.783)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6xh"]
 size = Vector2(335, 23)
+
+[sub_resource type="Gradient" id="Gradient_3ewe8"]
+offsets = PackedFloat32Array(0.329032, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7po04"]
+gradient = SubResource("Gradient_3ewe8")
+fill = 1
+fill_from = Vector2(0.495413, 0.477064)
+fill_to = Vector2(0.655963, 0.334862)
 
 [node name="Bondi" type="CharacterBody2D" groups=["Bondi"]]
 position = Vector2(210, 241)
@@ -21,6 +32,7 @@ scale = Vector2(0.595885, 0.595885)
 texture = ExtResource("1")
 
 [node name="StopsArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
@@ -30,6 +42,7 @@ scale = Vector2(0.595885, 0.595885)
 shape = SubResource("RectangleShape2D_yf4fp")
 
 [node name="ObstaculesArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 
 [node name="ObstaculeCollision" type="CollisionShape2D" parent="ObstaculesArea"]
@@ -42,3 +55,33 @@ position = Vector2(5, 23)
 scale = Vector2(0.595885, 0.595885)
 build_mode = 1
 polygon = PackedVector2Array(204.737, 100.691, 278.577, 40.2762, 271.865, 23.4944, 270.186, 1.67816, 275.221, -1.67819, 273.543, -43.6326, 261.795, -99.0124, 250.048, -124.185, -256.761, -129.22, -281.934, -110.76, -293.681, -72.1616, -286.968, -70.4834, -292.003, 26.8508, -293.681, 46.9889, -303.75, 48.6671, -307.106, 73.8397, -295.359, 77.1961, -295.359, 87.2651, -224.876, 104.047, -214.807, 119.151, -179.565, 129.22, -137.61, 107.403, 30.2072, 107.403, 63.7707, 127.541, 97.3342, 127.541, 117.472, 105.725)
+
+[node name="Foco1" type="PointLight2D" parent="."]
+position = Vector2(374.35, 55)
+scale = Vector2(0.600879, 0.3)
+range_layer_min = -11
+texture = ExtResource("3_x3vpb")
+
+[node name="Foco2" type="PointLight2D" parent="."]
+position = Vector2(400.85, 34)
+scale = Vector2(0.582324, 0.3)
+range_layer_min = -11
+texture = ExtResource("3_x3vpb")
+
+[node name="Ventana1" type="PointLight2D" parent="."]
+position = Vector2(134.175, 25.8805)
+rotation = -0.127409
+scale = Vector2(2.23983, 4.05072)
+skew = -0.190241
+range_layer_min = -2
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_7po04")
+
+[node name="Ventana2" type="PointLight2D" parent="."]
+position = Vector2(163.672, 3.62119)
+rotation = -0.254818
+scale = Vector2(3.04, 4.16859)
+skew = -0.127409
+range_layer_min = -2
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_7po04")

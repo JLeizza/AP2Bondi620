@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6mut4yjiad5d"]
 
 [ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
-[ext_resource type="Texture2D" uid="uid://byau8hryilvnu" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
+[ext_resource type="Texture2D" uid="uid://b20upx4bcrivm" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]
 size = Vector2(212, 51.5)
@@ -36,6 +36,7 @@ position = Vector2(4.76837e-07, 3)
 rotation = 3.14159
 scale = Vector2(0.0483543, 0.0409134)
 color = Color(0.972182, 0.848894, 0.360467, 1)
+energy = 2.0
 range_z_min = -3
 range_z_max = -1
 range_layer_min = -3

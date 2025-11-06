@@ -318,7 +318,7 @@ value = 100.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_over = ExtResource("4_snqrv")
-texture_progress = ExtResource("5_o0jxl")
+texture_progress = ExtResource("6_sihw5")
 radial_initial_angle = 270.0
 radial_fill_degrees = 45.0
 
@@ -332,7 +332,7 @@ value = 100.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_over = ExtResource("4_snqrv")
-texture_progress = ExtResource("6_sihw5")
+texture_progress = ExtResource("5_o0jxl")
 radial_initial_angle = 315.0
 radial_fill_degrees = 45.0
 
@@ -372,7 +372,7 @@ offset_right = 158.0
 offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("10_qyvku")
 theme_override_font_sizes/font_size = 11
-text = "KM/H: 60"
+text = "KM/H: "
 
 [node name="GanarNivel" type="Control" parent="."]
 layout_mode = 3
