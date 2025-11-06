@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
-[ext_resource type="FontFile" uid="uid://coy3ipytdevug" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
-[ext_resource type="Texture2D" uid="uid://cfntf04keohho" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
+[ext_resource type="FontFile" uid="uid://djjvk3gkj5w5n" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
+[ext_resource type="Texture2D" uid="uid://dwjw0cv0o3wm1" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
