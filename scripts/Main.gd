@@ -211,6 +211,6 @@ func _on_reiniciar_game():
 	AudioManager.get_node("MusicaDeFondo").stop()
 	get_tree().reload_current_scene()
 	
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+#func _input(event):
+#	if event.is_action_pressed("ui_cancel"):
+#		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

@@ -1,0 +1,163 @@
+[gd_scene load_steps=11 format=3 uid="uid://v6mqtrbnlntx"]
+
+[ext_resource type="Script" path="res://scripts/MenuPausa.gd" id="1_j20oj"]
+[ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="2_a51xe"]
+[ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="3_vvk4c"]
+[ext_resource type="Script" path="res://scripts/Control Audio.gd" id="4_kbr2p"]
+[ext_resource type="Script" path="res://scripts/Fullscreen Control.gd" id="5_y1esf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc4bg"]
+bg_color = Color(0, 0, 0, 0.662745)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgda0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3euk"]
+texture = ExtResource("3_vvk4c")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ag7bl"]
+color = Color(1, 1, 1, 1)
+thickness = 9
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uhtl1"]
+color = Color(0.662745, 0.701961, 0.0705882, 1)
+thickness = 9
+
+[node name="Menu pausa" type="Control"]
+process_mode = 3
+process_priority = 1
+z_index = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j20oj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.5
+offset_top = -182.5
+offset_right = 329.5
+offset_bottom = 182.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oc4bg")
+
+[node name="Continuar" type="Button" parent="Panel"]
+layout_mode = 1
+offset_left = 9.5
+offset_top = 23.5
+offset_right = 275.5
+offset_bottom = 90.5
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_a51xe")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kgda0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o3euk")
+text = "continuar"
+
+[node name="Reiniciar" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.5
+offset_top = -32.0
+offset_right = 272.5
+offset_bottom = 33.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_a51xe")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kgda0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o3euk")
+text = "reiniciar"
+
+[node name="Menu" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 51.5
+offset_top = -76.5
+offset_right = 235.5
+offset_bottom = -28.5
+grow_vertical = 0
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_a51xe")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kgda0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o3euk")
+text = "MENU"
+
+[node name="Volumen" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.5
+offset_top = -78.0
+offset_right = 194.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_a51xe")
+theme_override_font_sizes/font_size = 30
+text = "VOLUMEN"
+
+[node name="Control Audio" type="HSlider" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -58.0
+offset_right = 277.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ag7bl")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_uhtl1")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_uhtl1")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("4_kbr2p")
+audio_bus_name = "Music"
+
+[node name="Fullscreen Control" type="CheckButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = 32.0
+offset_right = 277.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_a51xe")
+theme_override_font_sizes/font_size = 30
+text = "FULLSCREEN"
+script = ExtResource("5_y1esf")
+
+[connection signal="pressed" from="Panel/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Panel/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Panel/Menu" to="." method="_on_menu_pressed"]
+[connection signal="value_changed" from="Panel/Control Audio" to="Panel/Control Audio" method="_on_value_changed"]
+[connection signal="toggled" from="Panel/Fullscreen Control" to="Panel/Fullscreen Control" method="_on_toggled"]
