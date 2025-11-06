@@ -1,7 +1,7 @@
 extends Node2D
 
 func activate():
-	AudioManager.play_music(preload("res://sounds/pombero.wav"))
+	AudioManager.get_node("Pomberito").play()
 	
 	var main = get_parent().get_parent()
 	var bondi = main.bondi

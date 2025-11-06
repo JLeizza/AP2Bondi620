@@ -1,7 +1,7 @@
 extends Node2D
 
 func activate():
-	AudioManager.play_music(preload("res://sounds/llorona.mp3"))
+	AudioManager.get_node("Llorona").play()
 	
 	bajar_luz()
 

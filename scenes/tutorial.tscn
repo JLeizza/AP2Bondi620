@@ -232,7 +232,7 @@ offset_right = 849.0
 offset_bottom = 500.0
 theme_override_fonts/font = ExtResource("3_4atrk")
 theme_override_font_sizes/font_size = 22
-text = "con 10 pasajeros a bordo antes de que termine tu turno"
+text = "con 20 pasajeros a bordo antes de que termine tu turno"
 
 [node name="controles" type="Control" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kqoad2m4sh4b"]
+[gd_scene load_steps=8 format=3 uid="uid://kqoad2m4sh4b"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_2opl2"]
 [ext_resource type="AudioStream" uid="uid://gshh5sfch1xg" path="res://sounds/cumbia villera.wav" id="2_atq2r"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://2u2b8ikpqcjt" path="res://music/grillos.wav" id="3_3fpey"]
 [ext_resource type="AudioStream" uid="uid://sera7uacr4qy" path="res://music/Fate.wav" id="4_6gt0w"]
 [ext_resource type="AudioStream" uid="uid://chthj55ll567q" path="res://sounds/pombero.wav" id="5_ml3r2"]
+[ext_resource type="AudioStream" uid="uid://cy3bcuj224mse" path="res://sounds/llorona.mp3" id="7_wjyuw"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_2opl2")
@@ -28,8 +29,11 @@ bus = &"Music"
 
 [node name="Pomberito" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ml3r2")
-volume_db = 2.0
-bus = &"FX_Ambiental"
+bus = &"Music"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="Llorona" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wjyuw")
 bus = &"Music"

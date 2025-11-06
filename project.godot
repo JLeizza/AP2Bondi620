@@ -13,7 +13,7 @@ config_version=5
 config/name="El Bondi 620"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://ChatGPT Image 6 nov 2025, 19_15_06.png"
+config/icon="res://Icono.png"
 
 [autoload]
 
