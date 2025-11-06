@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://clw0hkn3te8dc"]
+[gd_scene load_steps=30 format=3 uid="uid://clw0hkn3te8dc"]
 
 [ext_resource type="Texture2D" uid="uid://cmri74io3n11k" path="res://sprites/Tutorial/fondo.png" id="1_5x8ks"]
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_w6g45"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vr3kff06w1co" path="res://sprites/Tutorial/espacio.png" id="5_lt63g"]
 [ext_resource type="Texture2D" uid="uid://dsi6x88crf6w7" path="res://sprites/SantuarioGG.png" id="6_ri66s"]
 [ext_resource type="Texture2D" uid="uid://birjd2mvu08rx" path="res://sprites/SantuarioSM.png" id="7_6sqtp"]
+[ext_resource type="Texture2D" uid="uid://d6h70utu1eq2" path="res://sprites/Tutorial/esc.png" id="8_7rbkk"]
 [ext_resource type="Texture2D" uid="uid://6k7qgs0c2wfq" path="res://sprites/Tutorial/obstaculos.png" id="9_c71ye"]
 [ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="10_f4vlx"]
 [ext_resource type="Texture2D" uid="uid://dcna2vsbtw206" path="res://sprites/Pomberito.PNG" id="11_oanqg"]
@@ -251,10 +252,10 @@ text = "CONTROLES"
 
 [node name="arriba" type="TextureRect" parent="controles"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 112.0
-offset_right = 1280.0
-offset_bottom = 908.0
+offset_left = 253.0
+offset_top = 90.0
+offset_right = 1277.0
+offset_bottom = 886.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_8w3kc")
 
@@ -265,10 +266,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 378.0
-offset_top = 154.0
-offset_right = 632.0
-offset_bottom = 185.0
+offset_left = 375.0
+offset_top = 132.0
+offset_right = 629.0
+offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_4atrk")
@@ -277,41 +278,60 @@ text = "SUBIR DE CARRIL"
 
 [node name="abajo" type="TextureRect" parent="controles"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 196.0
-offset_right = 1280.0
-offset_bottom = 992.0
+offset_left = 253.0
+offset_top = 174.0
+offset_right = 1277.0
+offset_bottom = 970.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_omset")
 
 [node name="text abajo" type="Label" parent="controles"]
 layout_mode = 0
-offset_left = 398.0
-offset_top = 259.0
-offset_right = 653.0
-offset_bottom = 290.0
+offset_left = 395.0
+offset_top = 237.0
+offset_right = 650.0
+offset_bottom = 268.0
 theme_override_fonts/font = ExtResource("3_4atrk")
 theme_override_font_sizes/font_size = 30
 text = "BAJAR DE CARRIL"
 
 [node name="espacio" type="TextureRect" parent="controles"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 267.0
-offset_right = 1257.0
-offset_bottom = 1063.0
+offset_left = 239.0
+offset_top = 234.0
+offset_right = 1263.0
+offset_bottom = 1030.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_lt63g")
 
 [node name="text espacio" type="Label" parent="controles"]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 353.0
-offset_right = 665.0
-offset_bottom = 384.0
+offset_left = 481.0
+offset_top = 320.0
+offset_right = 671.0
+offset_bottom = 351.0
 theme_override_fonts/font = ExtResource("3_4atrk")
 theme_override_font_sizes/font_size = 30
 text = "PARAR BONDI"
+
+[node name="TextureRect" type="TextureRect" parent="controles"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 321.0
+offset_right = 1401.0
+offset_bottom = 1217.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_7rbkk")
+
+[node name="Label2" type="Label" parent="controles"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 397.0
+offset_right = 636.0
+offset_bottom = 428.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "PAUSAR JUEGO"
 
 [node name="siguienteruta" type="Button" parent="controles"]
 layout_mode = 0
