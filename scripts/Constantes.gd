@@ -17,7 +17,7 @@ const CAMERA_OFFSET_X = -300
 const SANT_SPAWN_TIME = 12 #Este tiempo es para debug mas facil, en el juego final diria que sea aprox el doble
 const OBS_SPAWN_TIME = 5
 const DAÑO_OBSTACULO = 1
-const DAÑO_SM = 2
+const DAÑO_SM = 1
 const HEALT_SANT_GG = 1
 const BUFF_VELOCIDAD_SM = 100
 
