@@ -8,6 +8,14 @@ extends CanvasLayer
 @onready var progressbar_verde_oscuro =$TextureProgressBar/TextureProgressBar1
 @onready var progressbar_amarillo =$TextureProgressBar/TextureProgressBar2
 @onready var progressbar_rojo =$TextureProgressBar/TextureProgressBar3
+@onready var velocidad_label = $TextureProgressBar/Velocimetro
+# NUEVA: Array para manejar las barras secuencialmente
+@onready var progressbar_segmentos = [
+	progressbar_verde,
+	progressbar_verde_oscuro,
+	progressbar_amarillo,
+	progressbar_rojo
+]
 #Array de la vida
 var hearts = []
 
@@ -66,6 +74,42 @@ func update_timer_color(current_time_left: float):
 	if tiempo.get_theme_color("font_color") != new_color:
 		tiempo.add_theme_color_override("font_color", new_color)
 
+# --- NUEVA FUNCIÓN PARA ACTUALIZAR EL VELOCÍMETRO ---
+# max_bus_speed se obtiene de tus constantes (Cte.MAX_SPEED = 600)
+func update_speedometer(current_bus_speed: float, max_bus_limit: float):
+	
+	# 1. Mapear la velocidad real (0 a max_bus_limit) a un valor de progreso (0 a 100)
+	var total_progress_value = (current_bus_speed / max_bus_limit) * 100
+	
+	# Limitar el valor entre 0 y 100
+	total_progress_value = clamp(total_progress_value, 0.0, 100)
+	
+	# 2. Actualizar el Label de velocidad
+	velocidad_label.text = "KM/H: " + str(int(current_bus_speed/10)) 
+
+	# 3. Lógica de Relleno Secuencial para las 4 barras
+	var remaining_progress = total_progress_value
+	
+	for i in range(progressbar_segmentos.size()):
+		var current_bar = progressbar_segmentos[i]
+		
+		# Configuramos el MaxValue de cada barra a 25.
+		current_bar.max_value = 25
+		
+		var value_to_fill = 0.0
+		
+		if remaining_progress >= 25:
+			# Si queda suficiente progreso para llenar toda la barra (ej. Velocidad > 50 -> llena barra 3)
+			value_to_fill = 25
+		elif remaining_progress > 0.0:
+			# Si queda progreso parcial para llenar (ej. Velocidad 55 -> llena barra 3 a 5 unidades)
+			value_to_fill = remaining_progress
+		# Si no queda progreso (remaining_progress <= 0), value_to_fill es 0.0
+		
+		current_bar.value = value_to_fill
+		
+		# Restar el progreso asignado para la siguiente iteración
+		remaining_progress -= value_to_fill
 #funcion que muestra la pantalla de perder
 func perder():
 	perder_nivel.visible = true

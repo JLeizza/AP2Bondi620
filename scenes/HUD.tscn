@@ -223,7 +223,7 @@ sprite_frames = SubResource("SpriteFrames_1sb31")
 animation = &"Full"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-modulate = Color(1, 1, 1, 0.545098)
+modulate = Color(1, 1, 1, 0.74902)
 offset_left = 8.0
 offset_top = 495.0
 offset_right = 208.0
@@ -278,7 +278,7 @@ texture_progress = ExtResource("9_n8lfl")
 radial_initial_angle = 45.0
 radial_fill_degrees = 45.0
 
-[node name="Label" type="Label" parent="TextureProgressBar"]
+[node name="Velocimetro" type="Label" parent="TextureProgressBar"]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 71.0

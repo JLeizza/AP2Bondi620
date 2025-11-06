@@ -5,14 +5,13 @@ var main
 var move = 50
 var initial_position = 410 
 var speed = Cte.START_SPEED
+var max_speed= Cte.MAX_SPEED
 var traveled_distance : int 
 var lifes : int = Cte.BONDI_MAX_LIFE
+@onready var hud = get_node("/root/Main/HUD")
 
 func _ready():
 	position.y = initial_position
-
-func _process(_delta):
-	pass
 
 func _physics_process(_delta):
 
@@ -21,6 +20,10 @@ func _physics_process(_delta):
 		
 	velocity.x = speed
 	move_and_slide()
+	
+	# LLAMADA CLAVE: Actualiza el velocímetro en el HUD
+	hud.update_speedometer(speed, max_speed)
+	
 # Input de movimiento.
 	if Input.is_action_just_pressed("ui_up") && position.y != initial_position :
 		position.y -= move
@@ -50,9 +53,13 @@ func heal(amount):
 	get_node("/root/Main/HUD").update_health(lifes, Cte.BONDI_MAX_LIFE)
 
 func handle_speed():
-	if speed > Cte.MAX_SPEED:
-		speed = Cte.MAX_SPEED
+	if speed > max_speed:
+		speed = max_speed
 	elif speed < 300:
 		speed += Cte.TIMER_STRONG_BUFF
-	elif speed >= 300 and speed < 700:
+	elif speed >= 300 and speed < 900:
 		speed += Cte.TIMER_LIGHT_BUFF
+	print ("la velocidad es ", speed)
+
+func increase_max_speed(buff_amount):
+	max_speed += buff_amount

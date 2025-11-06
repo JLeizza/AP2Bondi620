@@ -12,10 +12,10 @@ script = ExtResource("3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1")]
 
+[node name="HUD" parent="." instance=ExtResource("3_o4215")]
+
 [node name="Bondi" parent="." instance=ExtResource("2")]
 position = Vector2(211, 407)
-
-[node name="HUD" parent="." instance=ExtResource("4")]
 
 [node name="Carril1" type="Marker2D" parent="."]
 position = Vector2(1078, 462)
