@@ -119,6 +119,12 @@ func remove_obs(obs):
 func hit_obstacule(body, obs):
 	if body == bondi_obs_collider:
 		bondi.take_damage(Cte.DAÑO_OBSTACULO)
+		if speed > 590:
+			bondi.modify_speed(-320, 0)
+		elif speed > 390:
+			bondi.modify_speed(-160, 0)
+		elif speed < 590:
+			bondi.modify_speed(-80, 0)
 		remove_obs(obs)
 
 

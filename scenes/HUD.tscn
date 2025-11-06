@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
-
 [ext_resource type="FontFile" uid="uid://coy3ipytdevug" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
 [ext_resource type="Texture2D" uid="uid://cfntf04keohho" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
 [ext_resource type="Texture2D" uid="uid://cc8irmiv2eyjm" path="res://sprites/icono_pasajero.png" id="3_rpnlk"]
@@ -119,9 +118,8 @@ texture = ExtResource("3_o4kyf")
 layout_mode = 2
 texture = ExtResource("3_o4kyf")
 
-
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-modulate = Color(1, 1, 1, 0.545098)
+modulate = Color(1, 1, 1, 0.74902)
 offset_left = 8.0
 offset_top = 495.0
 offset_right = 208.0
@@ -137,9 +135,7 @@ radial_fill_degrees = 45.0
 [node name="TextureProgressBar1" type="TextureProgressBar" parent="TextureProgressBar"]
 modulate = Color(1, 1, 1, 0.545098)
 z_index = -1
-
 layout_mode = 0
-
 offset_right = 200.0
 offset_bottom = 200.0
 value = 100.0
@@ -153,9 +149,7 @@ radial_fill_degrees = 45.0
 [node name="TextureProgressBar2" type="TextureProgressBar" parent="TextureProgressBar"]
 modulate = Color(1, 1, 1, 0.545098)
 z_index = -1
-
 layout_mode = 0
-
 offset_right = 200.0
 offset_bottom = 200.0
 value = 100.0
@@ -168,9 +162,7 @@ radial_fill_degrees = 45.0
 [node name="TextureProgressBar3" type="TextureProgressBar" parent="TextureProgressBar"]
 modulate = Color(1, 1, 1, 0.545098)
 z_index = -2
-
 layout_mode = 0
-
 offset_right = 200.0
 offset_bottom = 200.0
 value = 100.0
@@ -182,7 +174,7 @@ texture_progress = ExtResource("9_n8lfl")
 radial_initial_angle = 45.0
 radial_fill_degrees = 45.0
 
-[node name="Label" type="Label" parent="TextureProgressBar"]
+[node name="Velocimetro" type="Label" parent="TextureProgressBar"]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 71.0

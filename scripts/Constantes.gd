@@ -4,7 +4,7 @@ extends Node
 const START_SPEED = 0
 const MAX_SPEED = 600
 const DIST_MODIFIER = 10
-const BONDI_MAX_LIFE = 4
+const BONDI_MAX_LIFE = 5
 const TIMER_STRONG_BUFF = 4
 const TIMER_LIGHT_BUFF = 2
 

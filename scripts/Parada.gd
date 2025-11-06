@@ -86,7 +86,7 @@ func activate():
 	var bondi = get_parent().bondi
 	var duracion_parada = (cant_pasajeros * Cte.TIEMPO_RECOGER_PASAJERO + 1) 
 	
-	bondi.modify_speed(-bondi.speed, duracion_parada)
+	bondi.modify_speed(-bondi.speed-10, duracion_parada)
 	
 	for i in range(pasajeros.size()):
 		await get_tree().create_timer(Cte.TIEMPO_RECOGER_PASAJERO).timeout
