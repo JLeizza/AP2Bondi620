@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clw0hkn3te8dc"]
+[gd_scene load_steps=29 format=3 uid="uid://clw0hkn3te8dc"]
 
 [ext_resource type="Texture2D" uid="uid://cmri74io3n11k" path="res://sprites/Tutorial/fondo.png" id="1_5x8ks"]
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_w6g45"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://birjd2mvu08rx" path="res://sprites/SantuarioSM.png" id="7_6sqtp"]
 [ext_resource type="Texture2D" uid="uid://6k7qgs0c2wfq" path="res://sprites/Tutorial/obstaculos.png" id="9_c71ye"]
 [ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="10_f4vlx"]
+[ext_resource type="Texture2D" uid="uid://dcna2vsbtw206" path="res://sprites/Pomberito.PNG" id="11_oanqg"]
+[ext_resource type="Texture2D" uid="uid://w1fgoxbmyurs" path="res://sprites/Llorona.PNG" id="12_0evyv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wum4"]
 texture = ExtResource("1_5x8ks")
@@ -20,6 +22,36 @@ bg_color = Color(0, 0, 0, 0.560784)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rgny"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cnc7f"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsdhk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kc0u"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eq3i6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_reey7"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwdm1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dhu1s"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krr7i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pind2"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16lw2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_111f1"]
+texture = ExtResource("10_f4vlx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5fr6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5r6vw"]
 texture = ExtResource("10_f4vlx")
 
 [node name="Tutorial" type="Control"]
@@ -59,171 +91,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3286t")
 
-[node name="arriba" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 26.0
-offset_right = 1082.0
-offset_bottom = 822.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_8w3kc")
+[node name="Objetivo" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="text arriba" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -312.0
-offset_top = -212.0
-offset_right = -58.0
-offset_bottom = -181.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "SUBIR DE CARRIL"
-
-[node name="abajo" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 110.0
-offset_right = 1082.0
-offset_bottom = 906.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_omset")
-
-[node name="text abajo" type="Label" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 173.0
-offset_right = 455.0
-offset_bottom = 204.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "BAJAR DE CARRIL"
-
-[node name="espacio" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 181.0
-offset_right = 1059.0
-offset_bottom = 977.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_lt63g")
-
-[node name="text espacio" type="Label" parent="."]
-layout_mode = 0
-offset_left = 277.0
-offset_top = 267.0
-offset_right = 467.0
-offset_bottom = 298.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "PARAR BONDI"
-
-[node name="gauchito" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 899.0
-offset_top = 65.0
-offset_right = 986.0
-offset_bottom = 264.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_ri66s")
-
-[node name="text gauchito" type="Label" parent="."]
-layout_mode = 0
-offset_left = 620.0
-offset_top = 95.0
-offset_right = 875.0
-offset_bottom = 126.0
-theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "TENES QUE PARAR"
-
-[node name="text gauchito 2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 696.0
-offset_top = 124.0
-offset_right = 804.0
-offset_bottom = 155.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "+1 VIDA"
-
-[node name="muerte" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 901.0
-offset_top = 209.0
-offset_right = 989.0
-offset_bottom = 407.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("7_6sqtp")
-
-[node name="text muerte" type="Label" parent="."]
-layout_mode = 0
-offset_left = 616.0
-offset_top = 245.0
-offset_right = 882.0
-offset_bottom = 276.0
-theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "DAÑO AUTOMATICO"
-
-[node name="text muerte2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 681.0
-offset_top = 277.0
-offset_right = 817.0
-offset_bottom = 308.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "-2 VIDAS"
-
-[node name="text muerte3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 664.0
-offset_top = 303.0
-offset_right = 843.0
-offset_bottom = 334.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "+VELOCIDAD"
-
-[node name="obstaculos" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 753.0
-offset_top = 324.0
-offset_right = 1777.0
-offset_bottom = 1120.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("9_c71ye")
-
-[node name="text obstaculos" type="Label" parent="."]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 393.0
-offset_right = 798.0
-offset_bottom = 424.0
-theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "AL CHOCAR"
-
-[node name="text obstaculos2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 667.0
-offset_top = 425.0
-offset_right = 775.0
-offset_bottom = 456.0
-theme_override_fonts/font = ExtResource("3_4atrk")
-theme_override_font_sizes/font_size = 30
-text = "-1 VIDA"
-
-[node name="Volver" type="Button" parent="."]
+[node name="Volver" type="Button" parent="Objetivo"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 506.0
@@ -236,4 +109,471 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8rgny")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cnc7f")
 text = "VOLVER"
 
-[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]
+[node name="Siguientecontrol" type="Button" parent="Objetivo"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 507.0
+offset_right = 991.0
+offset_bottom = 553.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsdhk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3kc0u")
+text = "SIGUIENTE"
+
+[node name="Label" type="Label" parent="Objetivo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 347.0
+offset_top = 17.0
+offset_right = 629.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 60
+text = "OBJETIVO"
+
+[node name="Label2" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 123.0
+offset_right = 919.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "Te encuentras en el turno norcturno manejando tu bondi por la ruta 3"
+
+[node name="Label3" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 168.0
+offset_right = 922.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "debes ir levantando a los pasajeros que se encuentran en las paradas"
+
+[node name="Label4" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 209.0
+offset_right = 655.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(0.745098, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "pero debes tener cuidado"
+
+[node name="Label10" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 248.0
+offset_right = 959.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "ya que existen mitos de que aparece la llorona y el pomperito por la zona"
+
+[node name="Label5" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 292.0
+offset_right = 993.0
+offset_bottom = 318.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "Tambien debes estar atento a los obstaculos en el camino porque te podes chocar"
+
+[node name="Label6" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 336.0
+offset_right = 957.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "por suerte, si paras por el santuario del gauchito gil podes recuperar vida"
+
+[node name="Label7" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 380.0
+offset_right = 827.0
+offset_bottom = 406.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "pero mantente alejado del santuario de san la muerte"
+
+[node name="Label8" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 440.0
+offset_right = 945.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "ya que entiendes toda tu situacion, tu objetivo es llegar a la terminal"
+
+[node name="Label9" type="Label" parent="Objetivo"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 474.0
+offset_right = 849.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 22
+text = "con 10 pasajeros a bordo antes de que termine tu turno"
+
+[node name="controles" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="controles"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 37.0
+offset_right = 664.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 60
+text = "CONTROLES"
+
+[node name="arriba" type="TextureRect" parent="controles"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 112.0
+offset_right = 1280.0
+offset_bottom = 908.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8w3kc")
+
+[node name="text arriba" type="Label" parent="controles"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 378.0
+offset_top = 154.0
+offset_right = 632.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "SUBIR DE CARRIL"
+
+[node name="abajo" type="TextureRect" parent="controles"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 196.0
+offset_right = 1280.0
+offset_bottom = 992.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_omset")
+
+[node name="text abajo" type="Label" parent="controles"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 259.0
+offset_right = 653.0
+offset_bottom = 290.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "BAJAR DE CARRIL"
+
+[node name="espacio" type="TextureRect" parent="controles"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 267.0
+offset_right = 1257.0
+offset_bottom = 1063.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_lt63g")
+
+[node name="text espacio" type="Label" parent="controles"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 353.0
+offset_right = 665.0
+offset_bottom = 384.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "PARAR BONDI"
+
+[node name="siguienteruta" type="Button" parent="controles"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 507.0
+offset_right = 996.0
+offset_bottom = 556.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eq3i6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_reey7")
+text = "SIGUIENTE"
+
+[node name="atrasobjetivo" type="Button" parent="controles"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 507.0
+offset_right = 190.0
+offset_bottom = 553.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lwdm1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dhu1s")
+text = "ATRAS"
+
+[node name="danosruta" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 36.0
+offset_right = 842.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 60
+text = "ELEMENTOS EN LA RUTA"
+
+[node name="gauchito" type="TextureRect" parent="danosruta"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 185.0
+offset_right = 237.0
+offset_bottom = 384.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_ri66s")
+
+[node name="text gauchito" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 320.0
+offset_right = 302.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "TENES QUE PARAR"
+
+[node name="text gauchito 2" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 349.0
+offset_right = 231.0
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "+1 VIDA"
+
+[node name="muerte" type="TextureRect" parent="danosruta"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 188.0
+offset_right = 586.0
+offset_bottom = 386.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_6sqtp")
+
+[node name="text muerte" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 322.0
+offset_right = 653.0
+offset_bottom = 353.0
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "DAÑO AUTOMATICO"
+
+[node name="text muerte2" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 351.0
+offset_right = 588.0
+offset_bottom = 382.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "-1 VIDAS"
+
+[node name="text muerte3" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 380.0
+offset_right = 614.0
+offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "+VELOCIDAD"
+
+[node name="obstaculos" type="TextureRect" parent="danosruta"]
+layout_mode = 0
+offset_left = 708.0
+offset_top = 159.0
+offset_right = 1732.0
+offset_bottom = 955.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_c71ye")
+
+[node name="text obstaculos" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 325.0
+offset_right = 936.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "AL CHOCAR"
+
+[node name="text obstaculos2" type="Label" parent="danosruta"]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 354.0
+offset_right = 913.0
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "-1 VIDA"
+
+[node name="siguienteenemigos" type="Button" parent="danosruta"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 505.0
+offset_right = 993.0
+offset_bottom = 555.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krr7i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pind2")
+text = "SIGUIENTE"
+
+[node name="atrascontroles" type="Button" parent="danosruta"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 507.0
+offset_right = 181.0
+offset_bottom = 553.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_16lw2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_111f1")
+text = "ATRAS"
+
+[node name="enemigos" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="enemigos"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 37.0
+offset_right = 591.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 60
+text = "MITOS"
+
+[node name="Label2" type="Label" parent="enemigos"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 353.0
+offset_right = 396.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "EL POMBERITO"
+
+[node name="TextureRect" type="TextureRect" parent="enemigos"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 156.0
+offset_right = 341.0
+offset_bottom = 345.0
+texture = ExtResource("11_oanqg")
+
+[node name="Label4" type="Label" parent="enemigos"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 391.0
+offset_right = 422.0
+offset_bottom = 422.0
+theme_override_colors/font_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "SIN INFORMACION"
+
+[node name="Label3" type="Label" parent="enemigos"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 353.0
+offset_right = 785.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.662745, 0.701961, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "LA LLORONA"
+
+[node name="TextureRect2" type="TextureRect" parent="enemigos"]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 129.0
+offset_right = 779.0
+offset_bottom = 353.0
+texture = ExtResource("12_0evyv")
+
+[node name="Label5" type="Label" parent="enemigos"]
+layout_mode = 0
+offset_left = 567.0
+offset_top = 391.0
+offset_right = 830.0
+offset_bottom = 422.0
+theme_override_colors/font_color = Color(0.541176, 0.541176, 0.541176, 1)
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+text = "SIN INFORMACION"
+
+[node name="atrasdanosruta" type="Button" parent="enemigos"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 509.0
+offset_right = 182.0
+offset_bottom = 551.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_4atrk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5fr6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5r6vw")
+text = "ATRAS"
+
+[connection signal="pressed" from="Objetivo/Volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="Objetivo/Siguientecontrol" to="." method="_on_siguientecontrol_pressed"]
+[connection signal="pressed" from="controles/siguienteruta" to="." method="_on_siguienteruta_pressed"]
+[connection signal="pressed" from="controles/atrasobjetivo" to="." method="_on_atrasobjetivo_pressed"]
+[connection signal="pressed" from="danosruta/siguienteenemigos" to="." method="_on_siguienteenemigos_pressed"]
+[connection signal="pressed" from="danosruta/atrascontroles" to="." method="_on_atrascontroles_pressed"]
+[connection signal="pressed" from="enemigos/atrasdanosruta" to="." method="_on_atrasdanosruta_pressed"]
