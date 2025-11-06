@@ -77,7 +77,10 @@ func init_variables():
 	]
 
 func activate():
-	for timer in Timers.get_children():
+	
+	var main = get_parent()
+	var timers = main.get_node("Timers")
+	for timer in timers.get_children():
 		timer.stop()
 	
 	var bondi = get_parent().bondi
@@ -91,11 +94,11 @@ func activate():
 		get_parent().agregar_pasajeros()
 		print("Pasajero ", i+1, " subió") 
 	
-	#if enemigos_activos.size() > 0:
-		#for enemigo in enemigos_activos:
-			#enemigo.activate()
-			#enemigo.hide()
+	if enemigos_activos.size() > 0:
+		for enemigo in enemigos_activos:
+			enemigo.activate()
+			enemigo.hide()
 	
-	for timer in Timers.get_children():
+	for timer in timers.get_children():
 		timer.start()
 	

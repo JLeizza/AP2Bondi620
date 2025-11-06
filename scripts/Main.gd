@@ -120,10 +120,7 @@ func hit_obstacule(body, obs):
 	if body == bondi_obs_collider:
 		bondi.take_damage(Cte.DAÑO_OBSTACULO)
 		remove_obs(obs)
-	else: 
-		print("Colisione con un objeto que no es ObstaculesArea")
-		print("Body: ", body)
-		print("Padre de body: ", body.get_parent())
+
 
 func hit_sant(body, sant):
 	if body == bondi_stop_collider:
@@ -207,14 +204,7 @@ func game_over():
 	$HUD.perder()
 
 func _on_timer_aumento_speed_timeout():
-	if bondi.speed > 700 :
-		bondi.speed
-	if bondi.speed < 300:
-		bondi.speed += Cte.TIMER_BUFF_SPEED
-		print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
-	if bondi.speed < 700 :
-		bondi.speed += Cte.TIMER_BUFF_SPEED_1
-		print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
+	bondi.handle_speed()
 	
 func _on_reiniciar_game():
 	get_tree().paused = false

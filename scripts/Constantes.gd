@@ -5,8 +5,10 @@ const START_SPEED = 0
 const MAX_SPEED = 600
 const DIST_MODIFIER = 10
 const BONDI_MAX_LIFE = 4
-const TIMER_BUFF_SPEED = 4
-const TIMER_BUFF_SPEED_1 = 2
+const TIMER_STRONG_BUFF = 4
+const TIMER_LIGHT_BUFF = 2
+
+
 #OFFSETS
 const SPAWN_OFFSET_X = 800  # Píxeles adelante del bondi
 const CAMERA_OFFSET_X = -300
