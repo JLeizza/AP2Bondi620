@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Ap 2 Bondi"
+config/name="El Bondi 620"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
