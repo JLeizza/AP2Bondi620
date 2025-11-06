@@ -11,11 +11,11 @@ const CRITICAL_COLOR = Color(0.6, 0.0, 0.0) # Rojo oscuro (< 10s)
 @onready var perder_nivel = $PerderNivel
 
 #Array de la vida
-var hearts : Array = []
+var hearts = []
 
-#Texturas corazon lleno y vacio
-var heart_full : Texture2D = preload("res://sprites/HealthHeart.png")
-var heart_rip : Texture2D = preload("res://sprites/RipHeart.png")
+##Texturas corazon lleno y vacio
+#var heart_full : Texture2D = preload("res://sprites/HealthHeart.png")
+#var heart_rip : Texture2D = preload("res://sprites/RipHeart.png")
 
 #señales perder y reiniciar
 signal perder_signal
@@ -27,7 +27,10 @@ func _ready():
 	tiempo.add_theme_color_override("font_color", DEFAULT_COLOR)
 	perder_nivel.visible = false #oculta la pantalla de perder
 	emit_signal("reiniciar_signal")
-	hearts = $Vidas.get_children()
+	for child in $Vidas.get_children():
+		if child is AnimatedSprite2D:
+			hearts.append(child)
+			child.play("Full")
 
 func _process(delta):
 	var tiempo_faltante = temporizador.time_left # Obtiene el tiempo restante
@@ -84,7 +87,7 @@ func _on_reiniciar_boton_pressed():
 func update_health(amount_life, max_life):
 	for i in range(len(hearts)):
 		if i < amount_life:
-			hearts[i].texture = heart_full
+			hearts[i].play("Full")
 		else:
-			hearts[i].texture = heart_rip
+			hearts[i].play("Rip")
 

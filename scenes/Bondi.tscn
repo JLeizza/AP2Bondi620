@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fopcwq0vins"]
 
-[ext_resource type="Texture2D" uid="uid://dheuk22x4d27k" path="res://sprites/Bondi.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bf8t5uck6kv22" path="res://sprites/Bondi.png" id="1"]
 [ext_resource type="Script" path="res://scripts/Bondi.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4fp"]
