@@ -10,7 +10,8 @@ const TIMER_LIGHT_BUFF = 2
 
 
 #OFFSETS
-const SPAWN_OFFSET_X = 800  # Píxeles adelante del bondi
+const SPAWN_OFFSET_X = 800
+const SPAWN_OFFSET_TERMINAL_X = 1500  # Píxeles adelante del bondi
 const CAMERA_OFFSET_X = -300
 
 ##OBSTACULOS Y SANTUARIOS
@@ -44,6 +45,7 @@ const GOMAS_SCENE = preload("res://scenes/Gomas.tscn")
 const SANTUARIO_GAUCHITO = preload("res://scenes/SantuarioGG.tscn")
 const SANTUARIO_MUERTE = preload("res://scenes/SantuarioSM.tscn")
 const PARADA_SCENE = preload("res://scenes/Parada.tscn")
+const TERMINAL_SCENE = preload("res://scenes/Terminal.tscn")
 
 const DEFAULT_COLOR = Color(1.0, 1.0, 1.0)  # Blanco (o el color original)
 const WARNING_COLOR = Color.YELLOW          # Amarillo (< 60s)

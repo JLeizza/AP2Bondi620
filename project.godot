@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Ap 2 Bondi"
+config/name="El Bondi 620"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://ChatGPT Image 6 nov 2025, 19_15_06.png"
@@ -50,6 +50,8 @@ stop={
 
 [layer_names]
 
+2d_render/layer_2="Stops"
+2d_render/layer_3="Bondi"
 2d_physics/layer_1="Obstacules"
 2d_physics/layer_2="Stops"
 2d_physics/layer_3="Bondi"

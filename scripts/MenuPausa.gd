@@ -13,6 +13,7 @@ func continuar():
 func pausa():
 	get_tree().paused = true
 	visible = true
+	AudioManager.restart_music()
 
 func _on_continuar_pressed():
 	continuar()
