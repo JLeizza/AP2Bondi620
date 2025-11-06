@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck1650bbcwvl"]
+[gd_scene load_steps=13 format=3 uid="uid://ck1650bbcwvl"]
 
-[ext_resource type="Texture2D" uid="uid://on6lrxdibg2l" path="res://sprites/Fondo Opciones/FondoOpciones.png" id="1_o3ttk"]
+[ext_resource type="Texture2D" uid="uid://2214br8gcfjg" path="res://sprites/Fondo Opciones/FondoOpciones.png" id="1_o3ttk"]
 [ext_resource type="Script" path="res://scripts/Menu_options.gd" id="1_xefuk"]
-[ext_resource type="FontFile" uid="uid://dl81wxx845lf4" path="res://fonts/upheavtt.ttf" id="2_6gkwj"]
-[ext_resource type="Texture2D" uid="uid://by700bjlajpig" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="3_xkj25"]
+[ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="2_6gkwj"]
+[ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="3_xkj25"]
 [ext_resource type="Script" path="res://scripts/Control Audio.gd" id="5_gu6tm"]
+[ext_resource type="Script" path="res://scripts/Fullscreen Control.gd" id="6_l37he"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20y2c"]
 texture = ExtResource("1_o3ttk")
@@ -69,8 +70,25 @@ offset_right = 71.5
 offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_6gkwj")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 44
 text = "OPCIONES"
+
+[node name="Volumen" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -78.5
+offset_right = 57.5
+offset_bottom = -47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6gkwj")
+theme_override_font_sizes/font_size = 30
+text = "VOLUMEN"
 
 [node name="Volver" type="Button" parent="Panel"]
 layout_mode = 1
@@ -100,9 +118,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -140.0
-offset_top = -19.5
+offset_top = -58.5
 offset_right = 140.0
-offset_bottom = 19.5
+offset_bottom = -19.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_h6rjh")
@@ -114,5 +132,24 @@ value = 1.0
 script = ExtResource("5_gu6tm")
 audio_bus_name = "Music"
 
+[node name="Fullscreen Control" type="CheckButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 31.5
+offset_right = 140.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6gkwj")
+theme_override_font_sizes/font_size = 30
+text = "FULLSCREEN"
+script = ExtResource("6_l37he")
+
 [connection signal="pressed" from="Panel/Volver" to="." method="_on_volver_pressed"]
 [connection signal="value_changed" from="Panel/Control Audio" to="Panel/Control Audio" method="_on_value_changed"]
+[connection signal="toggled" from="Panel/Fullscreen Control" to="Panel/Fullscreen Control" method="_on_toggled"]
