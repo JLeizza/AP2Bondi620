@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6mut4yjiad5d"]
+[gd_scene load_steps=6 format=3 uid="uid://b6mut4yjiad5d"]
 
 [ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
-[ext_resource type="Texture2D" uid="uid://ctfus0c4ox2ft" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
+[ext_resource type="Texture2D" uid="uid://byau8hryilvnu" path="res://sprites/Parada.png (1).png" id="2_n2xqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]
 size = Vector2(212, 51.5)
@@ -25,7 +25,7 @@ script = ExtResource("1_8tkdr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.5, 0)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_lubxw")
+texture = ExtResource("2_n2xqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 49)
