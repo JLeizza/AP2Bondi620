@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0wmta7l8m0ja"]
 
 [ext_resource type="Script" path="res://scripts/SantuarioSM.gd" id="1_ypyu8"]
-[ext_resource type="Texture2D" uid="uid://birjd2mvu08rx" path="res://sprites/SantuarioSM.png" id="2_rt1nl"]
+[ext_resource type="Texture2D" uid="uid://qmx60g6kmqn2" path="res://sprites/SantuarioSM.png" id="2_kjtds"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(13, 29.25)
@@ -12,7 +12,7 @@ collision_mask = 4
 script = ExtResource("1_ypyu8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rt1nl")
+texture = ExtResource("2_kjtds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5.75001)

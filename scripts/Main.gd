@@ -204,14 +204,7 @@ func game_over():
 	$HUD.perder()
 
 func _on_timer_aumento_speed_timeout():
-	if bondi.speed > 700 :
-		bondi.speed
-	if bondi.speed < 300:
-		bondi.speed += Cte.TIMER_BUFF_SPEED
-		print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
-	if bondi.speed < 700 :
-		bondi.speed += Cte.TIMER_BUFF_SPEED_1
-		print(">>> Velocidad aumentada! Nueva velocidad: ", bondi.speed)
+	bondi.handle_speed()
 	
 func _on_reiniciar_game():
 	get_tree().paused = false
