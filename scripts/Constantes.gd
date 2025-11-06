@@ -1,0 +1,44 @@
+extends Node
+
+#
+const START_SPEED = 0
+const MAX_SPEED = 600
+const DIST_MODIFIER = 10
+const BONDI_MAX_LIFE = 4
+const TIMER_BUFF_SPEED = 4
+const TIMER_BUFF_SPEED_1 = 2
+#OFFSETS
+const SPAWN_OFFSET_X = 800  # Píxeles adelante del bondi
+const CAMERA_OFFSET_X = -300
+
+##OBSTACULOS Y SANTUARIOS
+const SANT_SPAWN_TIME = 12 #Este tiempo es para debug mas facil, en el juego final diria que sea aprox el doble
+const OBS_SPAWN_TIME = 5
+const DAÑO_OBSTACULO = 1
+const DAÑO_SM = 1
+const HEALT_SANT_GG = 1
+const BUFF_VELOCIDAD_SM = 100
+
+##ENEMIGOS
+const POMBERITO_LOW_SPEED = 50
+const POMBERITO_HIGH_SPEED = 400
+const POMBERITO_TIMER_LOOP = 2
+
+
+##PARADA
+const MIN_PASAJEROS= 1
+const MAX_PASAJEROS= 3
+const MIN_ENEMIGOS= 0
+const MAX_ENEMIGOS= 1
+const ENEMY_SPAWN_CHANCE = 0.7
+const TIEMPO_RECOGER_PASAJERO = 1
+
+
+##PACKED SCENESextends Node
+
+const BASURA_SCENE = preload("res://scenes/Basura.tscn")
+const CASCOTE_SCENE = preload("res://scenes/Cascote.tscn")
+const GOMAS_SCENE = preload("res://scenes/Gomas.tscn")
+const SANTUARIO_GAUCHITO = preload("res://scenes/SantuarioGG.tscn")
+const SANTUARIO_MUERTE = preload("res://scenes/SantuarioSM.tscn")
+const PARADA_SCENE = preload("res://scenes/Parada.tscn")

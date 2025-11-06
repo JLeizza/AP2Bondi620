@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvhq3aw5h03gb"]
+
+[ext_resource type="Texture2D" uid="uid://dslr1f71fyxh4" path="res://sprites/FemPass1.png" id="1_dacoh"]
+
+[node name="Pasajera1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.524433, 0.513454)
+texture = ExtResource("1_dacoh")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6mut4yjiad5d"]
+
+[ext_resource type="Script" path="res://scripts/Parada.gd" id="1_8tkdr"]
+[ext_resource type="Texture2D" uid="uid://ctfus0c4ox2ft" path="res://sprites/Parada.png (1).png" id="2_lubxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eksim"]
+size = Vector2(212, 51.5)
+
+[sub_resource type="Gradient" id="Gradient_da7pw"]
+offsets = PackedFloat32Array(0.12931, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ninxn"]
+gradient = SubResource("Gradient_da7pw")
+fill = 1
+fill_from = Vector2(0.509202, 1)
+fill_to = Vector2(0.509202, 0)
+
+[node name="Parada" type="Area2D"]
+z_index = -2
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_8tkdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lubxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 49)
+shape = SubResource("RectangleShape2D_eksim")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(4.76837e-07, 3)
+rotation = 3.14159
+scale = Vector2(0.0483543, 0.0409134)
+color = Color(0.972182, 0.848894, 0.360467, 1)
+range_layer_min = -3
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_ninxn")
+texture_scale = 50.0
+height = 24.0
+
+[node name="PosicionesMarkers" type="Marker2D" parent="."]
+
+[node name="Posicion1" type="Marker2D" parent="PosicionesMarkers"]
+position = Vector2(-55, 23)
+
+[node name="Posicion2" type="Marker2D" parent="PosicionesMarkers"]
+position = Vector2(-21, 23)
+
+[node name="Posicion3" type="Marker2D" parent="PosicionesMarkers"]
+position = Vector2(14, 22)
+
+[node name="Posicion4" type="Marker2D" parent="PosicionesMarkers"]
+position = Vector2(56, 22)

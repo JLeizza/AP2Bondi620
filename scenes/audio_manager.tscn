@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://kqoad2m4sh4b"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_2opl2"]
+[ext_resource type="AudioStream" uid="uid://gshh5sfch1xg" path="res://sounds/cumbia villera.wav" id="2_atq2r"]
+[ext_resource type="AudioStream" uid="uid://dqlerx2j70e5f" path="res://music/motor.wav" id="2_seocb"]
+[ext_resource type="AudioStream" uid="uid://2u2b8ikpqcjt" path="res://music/grillos.wav" id="3_3fpey"]
+[ext_resource type="AudioStream" uid="uid://sera7uacr4qy" path="res://music/Fate.wav" id="4_6gt0w"]
+[ext_resource type="AudioStream" uid="uid://chthj55ll567q" path="res://sounds/pombero.wav" id="5_ml3r2"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_2opl2")
+
+[node name="MusicaDeFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_atq2r")
+volume_db = 10.0
+
+[node name="SonidoMotor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_seocb")
+bus = &"Music"
+
+[node name="SonidoGrillos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3fpey")
+bus = &"Music"
+
+[node name="SonidoMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6gt0w")
+bus = &"Music"
+
+[node name="Pomberito" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ml3r2")
+volume_db = 2.0
+bus = &"FX_Ambiental"
