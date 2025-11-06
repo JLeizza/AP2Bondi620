@@ -120,10 +120,7 @@ func hit_obstacule(body, obs):
 	if body == bondi_obs_collider:
 		bondi.take_damage(Cte.DAÑO_OBSTACULO)
 		remove_obs(obs)
-	else: 
-		print("Colisione con un objeto que no es ObstaculesArea")
-		print("Body: ", body)
-		print("Padre de body: ", body.get_parent())
+
 
 func hit_sant(body, sant):
 	if body == bondi_stop_collider:
