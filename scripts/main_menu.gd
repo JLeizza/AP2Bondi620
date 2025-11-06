@@ -1,13 +1,12 @@
 extends Control
 
 func _ready():
+	#autoload para evitar que se repita la introduccion
 	print("GameState.intro_mostrada = ", GameState.intro_mostrada)
-	#detener la musica del juego
-	AudioManager.get_node("SonidoMotor").stop()
-	AudioManager.get_node("SonidoGrillos").stop()
 	#iniciar musica del menu
-	AudioManager.get_node("SonidoMenu").play()
+	AudioManager.play_music(preload("res://music/Fate.wav"))
 	
+	#funcion de verificar su estado, activarla y desactivarla si corresponde
 	if GameState.intro_mostrada == false:
 		$Negro/AnimationPlayer.play("Fade")
 		GameState.intro_mostrada = true
@@ -21,12 +20,10 @@ func _ready():
 		$Negro/khy.modulate.a = 0.0
 
 func _on_jugar_pressed():
-	#Para que se detenga la musica del menu
-	AudioManager.get_node("SonidoMenu").stop()
-	#para q el sonido del motor y los grillos arranquen cuando pongo play
-	AudioManager.get_node("SonidoMotor").play()
-	AudioManager.get_node("SonidoGrillos").play()
-	
+#	#para q el sonido del motor y los grillos arranquen cuando pongo jugar
+	AudioManager.play_music(preload("res://music/grillos.wav"))
+	AudioManager.play_music(preload("res://music/motor.wav"))
+
 	get_tree().change_scene_to_file("res://scenes/Main.tscn")
 
 

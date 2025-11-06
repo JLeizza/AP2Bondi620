@@ -34,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xefuk")
+audio_bus_name = "Music"
 
 [node name="Fondo" type="Panel" parent="."]
 layout_mode = 1
