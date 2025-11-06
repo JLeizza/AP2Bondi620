@@ -9,6 +9,7 @@ var lastSantuario = null
 var carriles: Array = []
 var posSantuarios = null
 var posParada = null
+var posTerminal = null
 var ult_obstaculo = null
 var current_parada = null
 var total_pasajeros = null
@@ -24,6 +25,8 @@ var timer_paradas
 var timer_santuarios
 var timer_speed
 var timer_game_over
+var timer_terminal
+var timer_llorona
 
 #Colliders
 var bondi_obs_collider 
@@ -38,7 +41,7 @@ func _ready():
 	print("=== INICIALIZANDO MAIN ===")
 	
 	init_variables()
-	AudioManager.get_node("MusicaDeFondo").volume_db= 2
+#	AudioManager.get_node("MusicaDeFondo").volume_db= 2
 	set_timers()
 	
 	print("=== INICIALIZACIÓN COMPLETA ===")
@@ -98,11 +101,6 @@ func gen_obstaculos():
 	obs.area_entered.connect(hit_obstacule.bind(obs))
 	
 	add_child(obs)
-#	print("  === DEBUG OBSTÁCULO ===")
-#	print("  Carril Y elegido: ", spawn_y)
-#	print("  Obstáculo Y final: ", obs.position.y)
-#	print("  Obstáculo z_index: ", obs.z_index)
-#	print("  Bondi z_index: ", bondi.z_index)
 
 func gen_parada():
 	var parada =  Cte.PARADA_SCENE.instantiate()
@@ -111,6 +109,14 @@ func gen_parada():
 	parada.position = Vector2(spawn_x, spawn_y)
 	
 	add_child(parada)
+	
+func gen_terminal():
+	var terminal =  Cte.TERMINAL_SCENE.instantiate()
+	var spawn_x = bondi.position.x + Cte.SPAWN_OFFSET_TERMINAL_X
+	var spawn_y = posTerminal.position.y
+	terminal.position = Vector2(spawn_x, spawn_y)
+	
+	add_child(terminal)
 
 func remove_obs(obs):
 	obs.queue_free()
@@ -135,6 +141,7 @@ func hit_sant(body, sant):
 			print("Colisione con un santuario")
 
 func agregar_pasajeros():
+	GameState.pasajeros += 1
 	total_pasajeros += 1
 	$HUD.update_pasajeros(total_pasajeros)
 
@@ -144,8 +151,12 @@ func _on_timer_obs_timeout():
 func _on_timer_paradas_timeout():
 	gen_parada()
 
+func _on_timer_terminal_timeout():
+	gen_terminal()
+
 func _on_timer_santuarios_timeout():
 	gen_santuario()
+	
 	
 func init_variables():
 	# Inicializar arrays
@@ -168,6 +179,7 @@ func init_variables():
 	
 	#Init del resto de nodos
 	posParada = $PosParada
+	posTerminal = $PosTerminal
 	camera = $Camera2D
 	hud = $HUD
 	
@@ -176,6 +188,7 @@ func init_variables():
 	timer_obs = $Timers/TimerObs
 	timer_paradas = $Timers/TimerParadas
 	timer_santuarios = $Timers/TimerSantuarios
+	timer_terminal =$TimerTerminal
 	traveled_distance = 0
 	
 	#Init la señal de reiniciar el juego
@@ -188,6 +201,7 @@ func set_timers():
 	timer_santuarios.timeout.connect(_on_timer_santuarios_timeout)
 	timer_speed.timeout.connect(_on_timer_aumento_speed_timeout)
 	timer_paradas.timeout.connect(_on_timer_paradas_timeout)
+	timer_terminal.timeout.connect(_on_timer_terminal_timeout)
 	
 	timer_obs.start()
 	print("  Timer obstáculos: ", timer_obs.wait_time, "s")
@@ -198,8 +212,12 @@ func set_timers():
 	timer_paradas.start()
 	print("  Timer paradas: ", timer_paradas.wait_time, "s")
 	
+	timer_terminal.start()
+	print("  Timer terminal: ", timer_terminal.wait_time, "s")
+	
 	timer_speed.start()
 	print("  Timer aumento de velocitdad: ", timer_speed.wait_time, "s")
+	
 
 func check_game_over():
 	if bondi.lifes <= 0:
@@ -214,9 +232,5 @@ func _on_timer_aumento_speed_timeout():
 	
 func _on_reiniciar_game():
 	get_tree().paused = false
-	AudioManager.get_node("MusicaDeFondo").stop()
 	get_tree().reload_current_scene()
-	
-#func _input(event):
-#	if event.is_action_pressed("ui_cancel"):
-#		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+

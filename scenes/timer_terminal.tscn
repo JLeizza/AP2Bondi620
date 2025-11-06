@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bvus5oncsc6nt"]
+
+[node name="TimerTerminal" type="Timer"]
+wait_time = 120.0
+autostart = true

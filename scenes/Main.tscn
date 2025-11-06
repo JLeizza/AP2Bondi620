@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dubfgnjb30dlf"]
+[gd_scene load_steps=8 format=3 uid="uid://dubfgnjb30dlf"]
 
 [ext_resource type="PackedScene" uid="uid://bfhutyn7hb3ah" path="res://scenes/BG.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://fopcwq0vins" path="res://scenes/Bondi.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://da860gryq61gg" path="res://scenes/HUD.tscn" id="4_g7r6d"]
+[ext_resource type="PackedScene" uid="uid://da860gryq61gg" path="res://scenes/HUD.tscn" id="4_eusfh"]
 [ext_resource type="PackedScene" uid="uid://gdbv625cunip" path="res://scenes/timers.tscn" id="5_1pa2w"]
+[ext_resource type="PackedScene" uid="uid://bvus5oncsc6nt" path="res://scenes/timer_terminal.tscn" id="6_1uyye"]
 [ext_resource type="PackedScene" uid="uid://v6mqtrbnlntx" path="res://scenes/menu_pausa.tscn" id="6_syg3y"]
 
 [node name="Main" type="Node"]
@@ -15,7 +16,7 @@ script = ExtResource("3")
 [node name="Bondi" parent="." instance=ExtResource("2")]
 position = Vector2(211, 407)
 
-[node name="HUD" parent="." instance=ExtResource("4_g7r6d")]
+[node name="HUD" parent="." instance=ExtResource("4_eusfh")]
 
 [node name="Carril1" type="Marker2D" parent="."]
 position = Vector2(1078, 462)
@@ -29,9 +30,14 @@ position = Vector2(1337, 343)
 [node name="PosSantuario" type="Marker2D" parent="."]
 position = Vector2(1343, 529)
 
+[node name="PosTerminal" type="Marker2D" parent="."]
+position = Vector2(1569, 301)
+
 [node name="Pasajeros" type="Node2D" parent="."]
 
 [node name="Timers" parent="." instance=ExtResource("5_1pa2w")]
+
+[node name="TimerTerminal" parent="." instance=ExtResource("6_1uyye")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 300)

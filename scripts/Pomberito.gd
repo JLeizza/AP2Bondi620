@@ -1,16 +1,7 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func activate():
-	AudioManager.get_node("Pomberito").play()
+	AudioManager.play_music(preload("res://sounds/pombero.wav"))
 	
 	var main = get_parent().get_parent()
 	var bondi = main.bondi

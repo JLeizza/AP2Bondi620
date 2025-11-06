@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://da860gryq61gg"]
+[gd_scene load_steps=32 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
 [ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c0iv5id10g8mg" path="res://sprites/Sprites progress bar/32x32_circle_bar_under.png" id="8_6art5"]
 [ext_resource type="Texture2D" uid="uid://dwcgh1n15od7v" path="res://sprites/Sprites progress bar/32x32 circle bar progress red.png" id="9_n8lfl"]
 [ext_resource type="FontFile" uid="uid://c7tkynarqm3p1" path="res://fonts/PressStart2P.ttf" id="10_qyvku"]
+[ext_resource type="Texture2D" uid="uid://bgnvm61cn8f3j" path="res://sprites/negro.png" id="13_dafiy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
@@ -108,6 +109,91 @@ animations = [{
 "name": &"Rip",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_3w8ng"]
+resource_name = "Ganar"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ganaste:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3.5, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuBoton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.5, 5, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3nqas"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ganaste:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuBoton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f45fs"]
+_data = {
+"Ganar": SubResource("Animation_3w8ng"),
+"RESET": SubResource("Animation_3nqas")
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_01wxg")
@@ -288,4 +374,56 @@ theme_override_fonts/font = ExtResource("10_qyvku")
 theme_override_font_sizes/font_size = 11
 text = "KM/H: 60"
 
+[node name="GanarNivel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Negro" type="Sprite2D" parent="GanarNivel"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(510.5, 304)
+scale = Vector2(1.03809, 0.81407)
+texture = ExtResource("13_dafiy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GanarNivel/Negro"]
+libraries = {
+"": SubResource("AnimationLibrary_f45fs")
+}
+
+[node name="Ganaste" type="Label" parent="GanarNivel/Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -744.5
+offset_top = -478.0
+offset_right = -279.5
+offset_bottom = -385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 100
+text = "¡GANASTE!"
+
+[node name="MenuBoton" type="Button" parent="GanarNivel/Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -676.0
+offset_top = -378.0
+offset_right = -348.0
+offset_bottom = -334.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ls1no")
+theme_override_font_sizes/font_size = 40
+text = "VOLVER AL MENU"
+
 [connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]
+[connection signal="pressed" from="GanarNivel/Negro/MenuBoton" to="." method="_on_menu_boton_pressed"]
