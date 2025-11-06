@@ -1,22 +1,113 @@
-[gd_scene load_steps=15 format=3 uid="uid://da860gryq61gg"]
+[gd_scene load_steps=28 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
-[ext_resource type="FontFile" uid="uid://coy3ipytdevug" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
-[ext_resource type="Texture2D" uid="uid://cfntf04keohho" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
-[ext_resource type="Texture2D" uid="uid://cc8irmiv2eyjm" path="res://sprites/icono_pasajero.png" id="3_rpnlk"]
-[ext_resource type="Texture2D" uid="uid://d0mvwa3wbxlam" path="res://sprites/Sprites progress bar/32x32_circle_bar_over.png" id="4_snqrv"]
-[ext_resource type="Texture2D" uid="uid://c3ddguy07fymy" path="res://sprites/Sprites progress bar/32x32 circle bar progress green.png" id="5_o0jxl"]
-[ext_resource type="Texture2D" uid="uid://cf6r5unahhkwp" path="res://sprites/Sprites progress bar/32x32 circle bar progress dark green.png" id="6_sihw5"]
-[ext_resource type="Texture2D" uid="uid://dr3qoxxg7m8dy" path="res://sprites/Sprites progress bar/32x32 circle bar progress orange.png" id="7_1u3pu"]
-[ext_resource type="Texture2D" uid="uid://cifjby3v27jwt" path="res://sprites/Sprites progress bar/32x32_circle_bar_under.png" id="8_6art5"]
-[ext_resource type="Texture2D" uid="uid://bq6mxsbtitstr" path="res://sprites/Sprites progress bar/32x32 circle bar progress red.png" id="9_n8lfl"]
-[ext_resource type="FontFile" uid="uid://fla00pom2ncr" path="res://fonts/PressStart2P.ttf" id="10_qyvku"]
+[ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
+[ext_resource type="Texture2D" uid="uid://citnn2stxe35j" path="res://sprites/icono_pasajero.png" id="3_rpnlk"]
+[ext_resource type="Texture2D" uid="uid://rs5oiunqnked" path="res://sprites/Sprites progress bar/32x32_circle_bar_over.png" id="4_snqrv"]
+[ext_resource type="Texture2D" uid="uid://bxe4v7oaalwqs" path="res://sprites/corazones.png" id="4_uagff"]
+[ext_resource type="Texture2D" uid="uid://dg1beoik7any5" path="res://sprites/corazonesrip.png" id="5_7a0k7"]
+[ext_resource type="Texture2D" uid="uid://v1v8e0e2scly" path="res://sprites/Sprites progress bar/32x32 circle bar progress green.png" id="5_o0jxl"]
+[ext_resource type="Texture2D" uid="uid://ul0hsxmg0hry" path="res://sprites/Sprites progress bar/32x32 circle bar progress dark green.png" id="6_sihw5"]
+[ext_resource type="Texture2D" uid="uid://dfvtr6vpbu53f" path="res://sprites/Sprites progress bar/32x32 circle bar progress orange.png" id="7_1u3pu"]
+[ext_resource type="Texture2D" uid="uid://c0iv5id10g8mg" path="res://sprites/Sprites progress bar/32x32_circle_bar_under.png" id="8_6art5"]
+[ext_resource type="Texture2D" uid="uid://dwcgh1n15od7v" path="res://sprites/Sprites progress bar/32x32 circle bar progress red.png" id="9_n8lfl"]
+[ext_resource type="FontFile" uid="uid://c7tkynarqm3p1" path="res://fonts/PressStart2P.ttf" id="10_qyvku"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qb80j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sel6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41kol"]
+atlas = ExtResource("4_uagff")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lwiy"]
+atlas = ExtResource("4_uagff")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rdhs"]
+atlas = ExtResource("4_uagff")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u05yk"]
+atlas = ExtResource("4_uagff")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lf6s"]
+atlas = ExtResource("4_uagff")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbxkv"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcym6"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn6m8"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upcl3"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n20c4"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwlv3"]
+atlas = ExtResource("5_7a0k7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sb31"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41kol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lwiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rdhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u05yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lf6s")
+}],
+"loop": true,
+"name": &"Full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbxkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcym6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn6m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upcl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n20c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwlv3")
+}],
+"loop": false,
+"name": &"Rip",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_01wxg")
@@ -97,26 +188,39 @@ text = "REINICIAR"
 [node name="Vidas" type="HBoxContainer" parent="."]
 offset_left = 16.0
 offset_top = 14.0
-offset_right = 372.0
-offset_bottom = 84.0
+offset_right = 420.0
+offset_bottom = 101.0
 scale = Vector2(0.7, 0.7)
-metadata/_edit_group_ = true
 
-[node name="Heart 1" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="Heart 1" type="AnimatedSprite2D" parent="Vidas"]
+position = Vector2(28, 30.8571)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1sb31")
+animation = &"Full"
 
-[node name="Heart 2" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="Heart 2" type="AnimatedSprite2D" parent="Vidas"]
+position = Vector2(103.857, 31)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1sb31")
+animation = &"Full"
 
-[node name="Heart 3" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="Heart 3" type="AnimatedSprite2D" parent="Vidas"]
+position = Vector2(181, 31)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1sb31")
+animation = &"Full"
 
-[node name="Heart 4" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="Heart 4" type="AnimatedSprite2D" parent="Vidas"]
+position = Vector2(256.714, 31)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1sb31")
+animation = &"Full"
+
+[node name="Heart 5" type="AnimatedSprite2D" parent="Vidas"]
+position = Vector2(332.857, 31.4286)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1sb31")
+animation = &"Full"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 modulate = Color(1, 1, 1, 0.74902)

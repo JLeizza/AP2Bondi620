@@ -26,7 +26,7 @@ thickness = 9
 color = Color(0.662745, 0.701961, 0.0705882, 1)
 thickness = 9
 
-[node name="Control" type="Control"]
+[node name="Menu opciones" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xefuk")
+audio_bus_name = "Music"
 
 [node name="Fondo" type="Panel" parent="."]
 layout_mode = 1

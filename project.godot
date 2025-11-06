@@ -27,6 +27,7 @@ cascote_scene="*res://scenes/Cascote.tscn"
 basura_scene="*res://scenes/Basura.tscn"
 Timers="*res://scenes/timers.tscn"
 Pausa="*res://scripts/Pausa.gd"
+GameState="*res://scripts/GameState.gd"
 
 [display]
 

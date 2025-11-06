@@ -30,3 +30,6 @@ bus = &"Music"
 stream = ExtResource("5_ml3r2")
 volume_db = 2.0
 bus = &"FX_Ambiental"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

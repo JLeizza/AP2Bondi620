@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbyfb582w7uyg"]
+[gd_scene load_steps=13 format=3 uid="uid://dbyfb582w7uyg"]
 
 [ext_resource type="Texture2D" uid="uid://cq4fpvibfnsvr" path="res://sprites/Fondo Main Menu/Fondo Menu.png" id="1_hmlna"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_p0t7o"]
 [ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="2_dgkec"]
 [ext_resource type="Texture2D" uid="uid://cm1ae7bxhsajv" path="res://sprites/Fondo Main Menu/Sin título-3.png" id="3_hxrep"]
+[ext_resource type="Texture2D" uid="uid://bgnvm61cn8f3j" path="res://sprites/negro.png" id="5_uova5"]
+[ext_resource type="Texture2D" uid="uid://cqhbfbom5hy2h" path="res://sprites/Capcom_Logo.png" id="6_76vxq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gq3l"]
 texture = ExtResource("1_hmlna")
@@ -12,6 +14,211 @@ texture = ExtResource("1_hmlna")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01gqe"]
 texture = ExtResource("3_hxrep")
+
+[sub_resource type="Animation" id="Animation_i434y"]
+resource_name = "Fade"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("juegopor:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("julen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.5, 7, 13.1, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stefa:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7, 8.5, 13, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("agos:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.5, 10, 12.9, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("khy:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10, 11.5, 12.8, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CapcomLogo:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3, 4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Equipo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3, 4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yyui5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("juegopor:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("julen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stefa:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("agos:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("khy:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CapcomLogo:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Equipo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ko8s"]
+_data = {
+"Fade": SubResource("Animation_i434y"),
+"RESET": SubResource("Animation_yyui5")
+}
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -81,10 +288,10 @@ offset_bottom = 40.0
 
 [node name="Jugar" type="Button" parent="Botones"]
 layout_mode = 2
-offset_left = 104.0
-offset_top = 312.0
-offset_right = 280.0
-offset_bottom = 360.0
+offset_left = 107.0
+offset_top = 276.0
+offset_right = 283.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -95,12 +302,29 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
 theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
 text = "JUGAR"
 
+[node name="Tutorial" type="Button" parent="Botones"]
+layout_mode = 2
+offset_left = 87.0
+offset_top = 342.0
+offset_right = 309.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
+text = "TUTORIAL
+"
+
 [node name="Opciones" type="Button" parent="Botones"]
 layout_mode = 2
-offset_left = 74.0
-offset_top = 376.0
-offset_right = 314.0
-offset_bottom = 432.0
+offset_left = 79.0
+offset_top = 417.0
+offset_right = 319.0
+offset_bottom = 473.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -113,10 +337,10 @@ text = "OPCIONES"
 
 [node name="Salir" type="Button" parent="Botones"]
 layout_mode = 2
-offset_left = 104.0
-offset_top = 448.0
-offset_right = 288.0
-offset_bottom = 496.0
+offset_left = 105.0
+offset_top = 489.0
+offset_right = 289.0
+offset_bottom = 537.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -127,6 +351,125 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_sssqr")
 theme_override_styles/hover = SubResource("StyleBoxTexture_01gqe")
 text = "SALIR"
 
+[node name="Negro" type="Sprite2D" parent="."]
+position = Vector2(512, 301)
+scale = Vector2(1.0332, 0.766332)
+texture = ExtResource("5_uova5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Negro"]
+libraries = {
+"": SubResource("AnimationLibrary_7ko8s")
+}
+
+[node name="juegopor" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -773.0
+offset_top = -426.5
+offset_right = -251.0
+offset_bottom = -369.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 60
+text = "Juego hecho por"
+
+[node name="Equipo" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.92
+offset_top = -494.564
+offset_right = -407.92
+offset_bottom = -437.564
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 60
+text = "EQUIPO"
+
+[node name="CapcomLogo" type="Sprite2D" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-11.6144, 13.0492)
+scale = Vector2(0.967864, 1.30492)
+texture = ExtResource("6_76vxq")
+
+[node name="julen" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -622.337
+offset_top = -595.043
+offset_right = -412.337
+offset_bottom = -528.043
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 70
+text = "JULEN"
+
+[node name="stefa" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.401
+offset_top = -478.905
+offset_right = -413.401
+offset_bottom = -411.905
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 70
+text = "STEFA"
+
+[node name="agos" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.076
+offset_top = -362.767
+offset_right = -432.076
+offset_bottom = -295.767
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 70
+text = "AGOS"
+
+[node name="khy" type="Label" parent="Negro"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.59
+offset_top = -250.544
+offset_right = -450.59
+offset_bottom = -183.544
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dgkec")
+theme_override_font_sizes/font_size = 70
+text = "KHY"
+
 [connection signal="pressed" from="Botones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="Botones/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Botones/Opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="Botones/Salir" to="." method="_on_salir_pressed"]
