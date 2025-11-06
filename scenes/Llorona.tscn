@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddj5i2mijthov"]
+[gd_scene load_steps=3 format=3 uid="uid://ddj5i2mijthov"]
 
-[ext_resource type="Texture2D" uid="uid://ba003f83x4khg" path="res://sprites/Llorona.PNG" id="1_fds2q"]
+[ext_resource type="Script" path="res://scripts/Llorona.gd" id="1_ee3d2"]
+[ext_resource type="Texture2D" uid="uid://w1fgoxbmyurs" path="res://sprites/Llorona.PNG" id="1_fds2q"]
 
 [node name="Llorona" type="Node2D"]
+script = ExtResource("1_ee3d2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)

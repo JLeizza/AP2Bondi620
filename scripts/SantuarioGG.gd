@@ -16,9 +16,17 @@ func _process(delta):
 				queue_free()
 
 func activate():
+	var main = get_parent()
+	var timers = main.get_node("Timers")
+	for timer in timers.get_children():
+		timer.stop()
+		
 	var bondi = get_parent().bondi
 	var duracion_parada = (1 * Cte.TIEMPO_RECOGER_PASAJERO) 
 	
 	bondi.modify_speed(-bondi.speed, duracion_parada)
 		
 	bondi.heal(Cte.HEALT_SANT_GG)
+	
+	for timer in timers.get_children():
+		timer.start()

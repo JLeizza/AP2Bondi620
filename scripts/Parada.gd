@@ -76,8 +76,7 @@ func init_variables():
 		$PosicionesMarkers/Posicion4
 	]
 
-func activate():
-	
+func activate():	
 	var main = get_parent()
 	var timers = main.get_node("Timers")
 	for timer in timers.get_children():

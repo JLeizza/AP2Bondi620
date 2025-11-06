@@ -50,6 +50,8 @@ stop={
 
 [layer_names]
 
+2d_render/layer_2="Stops"
+2d_render/layer_3="Bondi"
 2d_physics/layer_1="Obstacules"
 2d_physics/layer_2="Stops"
 2d_physics/layer_3="Bondi"

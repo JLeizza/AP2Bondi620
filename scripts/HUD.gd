@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var tiempo = $TiempoPantalla
 @onready var temporizador = $Temporizador
 @onready var perder_nivel = $PerderNivel
+@onready var ganar_nivel = $GanarNivel
 @onready var progressbar_verde = $TextureProgressBar
 @onready var progressbar_verde_oscuro =$TextureProgressBar/TextureProgressBar1
 @onready var progressbar_amarillo =$TextureProgressBar/TextureProgressBar2
@@ -33,6 +34,7 @@ func _ready():
 		if child is AnimatedSprite2D:
 			hearts.append(child)
 			child.play("Full")
+	GameState.connect("ganar_signal", Callable(self, "ganar"))
 
 func _process(delta):
 	var tiempo_faltante = temporizador.time_left # Obtiene el tiempo restante
@@ -114,6 +116,10 @@ func update_speedometer(current_bus_speed: float, max_bus_limit: float):
 func perder():
 	perder_nivel.visible = true
 	
+func ganar():
+	ganar_nivel.visible = true
+	$GanarNivel/Negro/AnimationPlayer.play("Ganar")
+
 func update_pasajeros(total_pasajeros):
 	$Pasajeros.text= ": " + str(total_pasajeros)
 
@@ -129,3 +135,7 @@ func update_health(amount_life, max_life):
 		else:
 			hearts[i].play("Rip")
 
+
+
+func _on_menu_boton_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
