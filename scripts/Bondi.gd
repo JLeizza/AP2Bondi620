@@ -39,7 +39,7 @@ func modify_speed(buff, duration):
 		var original_speed = speed
 		speed += buff
 		await get_tree().create_timer(duration).timeout
-		speed = original_speed
+		speed = Cte.START_SPEED
 	else:
 		speed += buff
 

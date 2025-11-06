@@ -26,7 +26,6 @@ gomas_scene="*res://scenes/Gomas.tscn"
 cascote_scene="*res://scenes/Cascote.tscn"
 basura_scene="*res://scenes/Basura.tscn"
 Timers="*res://scenes/timers.tscn"
-AudioManager="*res://scenes/audio_manager.tscn"
 Pausa="*res://scripts/Pausa.gd"
 
 [display]
