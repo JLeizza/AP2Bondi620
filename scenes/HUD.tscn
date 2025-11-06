@@ -1,14 +1,105 @@
-[gd_scene load_steps=7 format=3 uid="uid://da860gryq61gg"]
+[gd_scene load_steps=20 format=3 uid="uid://da860gryq61gg"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_01wxg"]
-[ext_resource type="FontFile" uid="uid://djjvk3gkj5w5n" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
-[ext_resource type="Texture2D" uid="uid://dwjw0cv0o3wm1" path="res://sprites/HealthHeart.png" id="3_o4kyf"]
+[ext_resource type="FontFile" uid="uid://v55tksc06fcx" path="res://fonts/upheavtt.ttf" id="3_ls1no"]
+[ext_resource type="Texture2D" uid="uid://bxe4v7oaalwqs" path="res://sprites/corazones.png" id="4_to12n"]
+[ext_resource type="Texture2D" uid="uid://dg1beoik7any5" path="res://sprites/corazonesrip.png" id="5_wpu20"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhf2t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qb80j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sel6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6mbt"]
+atlas = ExtResource("4_to12n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhqon"]
+atlas = ExtResource("4_to12n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yfda"]
+atlas = ExtResource("4_to12n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on8vh"]
+atlas = ExtResource("4_to12n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpvjv"]
+atlas = ExtResource("4_to12n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8gr0"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0akc"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5x2b"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42bdx"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uagrk"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bskq8"]
+atlas = ExtResource("5_wpu20")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkgkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6mbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhqon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yfda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on8vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpvjv")
+}],
+"loop": true,
+"name": &"Full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8gr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0akc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5x2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42bdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uagrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bskq8")
+}],
+"loop": false,
+"name": &"Rip",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_01wxg")
@@ -74,27 +165,43 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_sel6i")
 action_mode = 0
 text = "REINICIAR"
 
-[node name="Vidas" type="HBoxContainer" parent="."]
+[node name="Vidas2" type="HBoxContainer" parent="."]
 offset_left = 16.0
-offset_top = 533.0
-offset_right = 372.0
-offset_bottom = 603.0
+offset_top = 517.0
+offset_right = 410.0
+offset_bottom = 610.0
 scale = Vector2(0.7, 0.7)
 
-[node name="Heart 1" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vidas2"]
+position = Vector2(44.0408, 44.041)
+scale = Vector2(4.00255, 4.00255)
+sprite_frames = SubResource("SpriteFrames_gkgkg")
+animation = &"Full"
+frame = 1
+frame_progress = 0.991041
 
-[node name="Heart 2" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Vidas2"]
+position = Vector2(144.041, 44.0408)
+scale = Vector2(4.00255, 4.00255)
+sprite_frames = SubResource("SpriteFrames_gkgkg")
+animation = &"Full"
+frame = 1
+frame_progress = 0.991041
 
-[node name="Heart 3" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Vidas2"]
+position = Vector2(244.041, 44.0408)
+scale = Vector2(4.00255, 4.00255)
+sprite_frames = SubResource("SpriteFrames_gkgkg")
+animation = &"Full"
+frame = 1
+frame_progress = 0.991041
 
-[node name="Heart 4" type="TextureRect" parent="Vidas"]
-layout_mode = 2
-texture = ExtResource("3_o4kyf")
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Vidas2"]
+position = Vector2(346.898, 44.0408)
+scale = Vector2(4.00255, 4.00255)
+sprite_frames = SubResource("SpriteFrames_gkgkg")
+animation = &"Full"
+frame = 1
+frame_progress = 0.991041
 
 [connection signal="pressed" from="PerderNivel/ReiniciarBoton" to="." method="_on_reiniciar_boton_pressed"]
